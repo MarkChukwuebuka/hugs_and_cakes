@@ -1,0 +1,638 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>{{title}} | {{app_config.app_name}}</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/tabler-icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/scrollCue.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static 'assets/images/favicon.png' %}">
+
+    <script src="https://unpkg.com/alpinejs" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+</head>
+<body>
+<!-- Scroll Smoother -->
+<div class="has-smooth" id="has_smooth"></div>
+<!-- Start Top Header Area -->
+
+<!-- Start Preloader Area -->
+<div id="preloader">
+    <div id="container" class="container-preloader">
+        <div class="animation-preloader">
+            <div class="spinner"></div>
+            <div class="txt-loading">
+            </div>
+        </div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+</div>
+<!-- End Preloader Area -->
+
+<!-- Start Navbar Area -->
+<nav class="navbar navbar-area bg-trasparent navbar-expand-lg" id="navbar">
+    <div class="container-fluid side-padding position-relative">
+        <a class="navbar-brand logo-brand p-0" href="{% url 'home' %}">
+            <img class="main-logo" src="{% static 'assets/images/main-logo.png' %}" alt="image">
+        </a>
+        <a class="navbar-toggler" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button"
+           aria-controls="offcanvasRight">
+                    <span class="burger-menu">
+                        <span class="top-bar"></span>
+                        <span class="middle-bar"></span>
+                        <span class="bottom-bar"></span>
+                    </span>
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Home
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home' %}">Home 01
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="index-3.html">Home 02
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="index-4.html">Home 03
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Pages
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'about' %}">About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="testimonials.html">Our Testimonials
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle dropdown-item" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Category
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="category.html">Category
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="category-details.html">Category Details
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle dropdown-item" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Chef
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="chef.html">Chef
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="chef-details.html">Chef Details
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="faq.html">FAQ's
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="reservation.html">Reservation
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item active" href="my-account.html">My Account
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="terms-conditions.html">Terms & Conditions
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="privacy-policy.html">Privacy Policy
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="error-404.html">Error 404
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Menu
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="menu.html">Menu
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="menu-details.html">Menu Details
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Services
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="services.html">Services
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="service-details.html">Service Details
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Shop
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="shop.html">Shop
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="shop-details.html">Shop Details
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="cart.html">Cart
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="checkout.html">Checkout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Blog
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="blog.html">Our Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="blog-details.html">Blog Details
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="{% url 'contact' %}">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="others-options">
+            <ul class="d-flex align-items-center shrink-0 ps-0 pe-0 mb-0 list-unstyled">
+                <li>
+                    <button class="search-btn fw-medium p-0 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                        <i class="ti ti-search search1"></i>
+                    </button>
+                </li>
+                <li>
+                    <a href="reservation.html" class="default-btn">Book A Table</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End Navbar Area -->
+
+<!-- Start Mobile Menu -->
+<div class="side-modal mobile-navbar offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
+    <div class="offcanvas-header">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+        </button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="mobile-menu">
+            <li class="mobile-menu-list">
+                <a href="javascript:void(0);">
+                    Home
+                </a>
+
+                <ul class="mobile-menu-items">
+                    <li>
+                        <a class="dropdown-item" href="{% url 'home' %}">
+                            Home Demo 1
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="index-3.html">
+                            Home Demo 2
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="index-4.html">
+                            Home Demo 3
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-menu-list active">
+                <a href="javascript:void(0);">
+                    Pages
+                </a>
+
+                <ul class="mobile-menu-items">
+                    <li>
+                        <a class="dropdown-item" href="{% url 'about' %}">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="testimonials.html">
+                            Our Testimonials
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="faq.html">
+                            FAQ’s
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item active" href="my-account.html">
+                            My Account
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="reservation.html">
+                            Reservation
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="privacy-policy.html">
+                            Privacy Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="terms-conditions.html">
+                            Terms & Conditions
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="error-404.html">
+                            Error 404
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-menu-list">
+                <a href="javascript:void(0);">
+                    Category
+                </a>
+
+                <ul class="mobile-menu-items">
+                    <li>
+                        <a class="dropdown-item" href="category.html">
+                            Category
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="category-details.html">
+                            category Details
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-menu-list">
+                <a href="javascript:void(0);">
+                    Menu
+                </a>
+
+                <ul class="mobile-menu-items">
+                    <li>
+                        <a class="dropdown-item" href="menu.html">
+                            Menu
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="menu-details.html">
+                            Menu Details
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-menu-list">
+                <a href="javascript:void(0);">
+                    Chef
+                </a>
+
+                <ul class="mobile-menu-items">
+                    <li>
+                        <a class="dropdown-item" href="chef.html">
+                            Chef
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="chef-details.html">
+                            Chef Details
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-menu-list">
+                <a href="javascript:void(0);">
+                    Services
+                </a>
+
+                <ul class="mobile-menu-items">
+                    <li>
+                        <a class="dropdown-item" href="services.html">
+                            Services
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="service-details.html">
+                            Service Details
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-menu-list">
+                <a href="javascript:void(0);">
+                    Shop
+                </a>
+
+                <ul class="mobile-menu-items">
+                    <li>
+                        <a class="dropdown-item" href="shop.html">
+                            Shop
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="shop-details.html">
+                            Shop Details
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="cart.html">
+                            Cart
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="checkout.html">
+                            Checkout
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-menu-list">
+                <a href="javascript:void(0);">
+                    Blog
+                </a>
+
+                <ul class="mobile-menu-items">
+                    <li>
+                        <a class="dropdown-item" href="blog.html">
+                            Our Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="blog-details.html">
+                            Blog Details
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="mobile-menu-list dropdown active">
+                <a class="nav-link icon active" href="{% url 'contact' %}">
+                    Contact Us
+                </a>
+            </li>
+        </ul>
+
+        <div class="others-options">
+            <ul class="d-lg-flex align-items-center shrink-0 ps-0 pe-0 mb-0 list-unstyled">
+                <li class="mb-2">
+                    <button class="search-btn fw-medium p-0 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                        <i class="ti ti-search search1"></i>
+                    </button>
+                </li>
+                <li class="d-flex align-items-center gap-2 mb-2">
+                    <i class="ti ti-phone search1"></i>
+                    <a href="tel:1234567890" class="number">+1 (123) 456-7890</a>
+                </li>
+                <li>
+                    <a href="reservation.html" class="default-btn">Book A Table</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End Mobile Menu -->
+
+<!-- Search Modal -->
+
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop">
+    <div class="offcanvas-header">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form class="popup-form">
+            <input type="text" class="form-control" placeholder="Search here...">
+            <button type="submit" class="p-btn">
+                <i class="ti ti-search"></i>
+            </button>
+        </form>
+    </div>
+</div>
+<!-- End Search Modal -->
+
+{% block breadcrumbs %}
+<!-- Start Page Banner Area -->
+<div class="page-banner-area position-relative z-1" style="background-image: url(../static/assets/images/hero/page-banner-bg.jpg);">
+    <div class="container">
+        <div class="page-banner-content text-center">
+            <h2 class="text-white">{{ title }}</h2>
+            <ul class="pages-list pe-0 ps-0 mb-0 list-unstyled">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li>{{ title }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Start Page Banner Area -->
+{% endblock breadcrumbs %}
+
+
+
+{% block main %}
+{% endblock main %}
+
+
+
+
+
+<!-- Start Footer Area -->
+<div class="footer-area bg-footer ptb-120 position-relative z-1">
+    <div class="container">
+        <div class="row g-4" data-cues="slideInUp" data-duration="800">
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <div class="logo mb-4">
+                        <img src="{% static 'assets/images/footer.png' %}" alt="image">
+                    </div>
+                    <p class="mb-4">Meanwhile, food delivery platforms revolutionized the way people enjoy meals by bringing freshly prepared</p>
+                    <ul class="social ps-0 pe-0 mb-0 list-unstyled d-flex align-items-center gap-2">
+                        <li><a href="https://www.facebook.com/" target="_blank"><i class="ti ti-brand-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/" target="_blank"><i class="ti ti-brand-x"></i></a></li>
+                        <li><a href="https://www.instagram.com/" target="_blank"><i class="ti ti-brand-instagram"></i></a></li>
+                        <li><a href="https://www.linkedin.com/" target="_blank"><i class="ti ti-brand-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget ps-0 ps-xl-5">
+                    <h3 class="fs-25 mb-4">Quick Links</h3>
+                    <ul class="ps-0 pe-0 mb-0 list-unstyled">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3 class="fs-25 mb-4">Our Menu</h3>
+                    <ul class="ps-0 pe-0 mb-0 list-unstyled">
+                        <li><a href="menu-details.html">Italian Chines</a></li>
+                        <li><a href="menu-details.html">Chicken Meal</a></li>
+                        <li><a href="menu-details.html">Chicken Ball</a></li>
+                        <li><a href="menu-details.html">Burger Kings</a></li>
+                        <li><a href="menu-details.html">Maxican Food</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3 class="fs-25 mb-4">Contact Us</h3>
+                    <div class="info-card mb-3">
+                        <h4 class="mb-2 lh-1 fs-20">Address:</h4>
+                        <a href="https://maps.app.goo.gl/byqdjUd9y3yP5oh96" target="_blank">123 Main Street, Suite 500, New York</a>
+                    </div>
+                    <div class="info-card mb-3">
+                        <h4 class="mb-2 lh-1 fs-20">Phone:</h4>
+                        <a href="tel:123456789">+123 456 789</a>
+                    </div>
+                    <div class="info-card">
+                        <h4 class="mb-2 lh-1 fs-20">Email:</h4>
+                        <a href="mailto:info@feedo.com">info@feedo.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shape-image">
+        <img class="shape bounce-y" src="{% static 'assets/images/shape/downlood-shape-2.png' %}" alt="image">
+    </div>
+</div>
+<!-- End Footer Area -->
+
+<!-- Start Copyright Area -->
+<div class="copy-right-area bg-footer">
+    <div class="container">
+        <div class="content">
+            <p class="fs-20 mb-0 text-center">© Feedo All Rights Reserved By <img src="{% static 'assets/images/copyright-logo.png' %}" alt="image"></p>
+        </div>
+    </div>
+</div>
+<!-- End Copyright Area -->
+
+<!-- Go top Btn -->
+<div class="go-top d-flex align-items-center">
+    <i class="ti ti-arrow-narrow-up"></i>
+</div>
+<!-- Go top Btn End -->
+
+<!-- JS Files -->
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/scrollCue.min.js' %}"></script>
+<script src="{% static 'assets/js/smoothscroll.min.js' %}"></script>
+<script src="{% static 'assets/js/fslightbox.min.js' %}"></script>
+<script src="{% static 'assets/js/scrollCue.min.js' %}"></script>
+<script src="{% static 'assets/js/feedo.js' %}"></script>
+
+{% include '../partials/messages.html' %}
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+        {% block main %}
+
+        <!-- Start My Account Area -->
+
+        <div class="my-account-page ptb-120 overflow-hidden">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8 col-sm-10">
+                        <form class="login-form br-10" method="POST" x-data="formValidation()">
+                            {% csrf_token %}
+                            <h2>Create An Account</h2>
+
+                            <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                    <input type="text"
+                                           name="firstName"
+                                           x-model="fields.firstName"
+                                           @input="validate('firstName')"
+                                           class="form-control" id="firstName"
+                                           >
+                                    <label for="firstName">First Name</label>
+                                </div>
+                                <template x-if="errors.firstName">
+                                    <p class="text-danger small mt-1" x-text="errors.firstName"></p>
+                                </template>
+                            </div>
+
+                            <!-- Last Name -->
+                            <div class="col-12 mt-2">
+                                <div class="form-floating theme-form-floating">
+                                    <input type="text"
+                                           name="lastName"
+                                           x-model="fields.lastName"
+                                           @input="validate('lastName')"
+                                           class="form-control" id="lastName"
+                                           >
+                                    <label for="lastName">Last Name</label>
+                                </div>
+                                <template x-if="errors.lastName">
+                                    <p class="text-danger small mt-1" x-text="errors.lastName"></p>
+                                </template>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-12 mt-2">
+                                <div class="form-floating theme-form-floating">
+                                    <input type="email"
+                                           name="email"
+                                           x-model="fields.email"
+                                           @input.debounce.1000ms="validate('email')"
+                                           class="form-control" id="email"
+                                           >
+                                    <label for="email">Email</label>
+                                </div>
+                                <template x-if="errors.email">
+                                    <p class="text-danger small mt-1" x-text="errors.email"></p>
+                                </template>
+                            </div>
+
+
+                            <!-- Password -->
+                            <div class="col-12 mt-2">
+                                <div class="form-floating theme-form-floating">
+                                    <input type="password"
+                                           name="password"
+                                           x-model="fields.password"
+                                           @input="validate('password')"
+                                           class="form-control" id="password"
+                                           required>
+                                    <label for="password">Password</label>
+                                </div>
+                                <template x-if="errors.password">
+                                    <p class="text-danger small mt-1" x-text="errors.password"></p>
+                                </template>
+                            </div>
+
+                            <!-- Confirm Password -->
+                            <div class="col-12 mt-2">
+                                <div class="form-floating theme-form-floating">
+                                    <input type="password"
+                                           name="confirmPassword"
+                                           x-model="fields.confirmPassword"
+                                           @input="validate('confirmPassword')"
+                                           class="form-control" id="confirm-password"
+                                           required>
+                                    <label for="confirm-password">Confirm Password</label>
+                                </div>
+                                <template x-if="errors.confirmPassword">
+                                    <p class="text-danger small mt-1" x-text="errors.confirmPassword"></p>
+                                </template>
+                            </div>
+
+                            <div class="col-12 mt-3">
+                                <button class="default-btn mb-4 d-inline-block" type="submit" :disabled="!isFormValid">Sign Up</button>
+                            </div>
+
+<!--                            <button type="submit" class="default-btn mb-4 d-inline-block">-->
+<!--                                Register Now-->
+<!--                            </button>-->
+
+                            <p class="text-center">
+                                Already have an account?
+                                <a href="{% url 'login' %}" class="fw-semibold">Login</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+<script>
+    function formValidation() {
+        return {
+            fields: {
+                firstName: '',
+                lastName: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
+            },
+            errors: {
+                firstName: '',
+                lastName: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
+            },
+            rules: {
+                firstName: [
+                    { check: val => val.trim() !== '', message: "First name is required." }
+                ],
+                lastName: [
+                    { check: val => val.trim() !== '', message: "Last name is required." }
+                ],
+                email: [
+                    { check: val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val), message: "Enter a valid email." }
+                ],
+                password: [
+                    { check: val => val.length >= 6, message: "Password must be at least 6 characters." }
+                ],
+                confirmPassword: [
+                    { check: (val, fields) => val === fields.password, message: "Passwords do not match." }
+                ]
+            },
+            async validate(field) {
+                const value = this.fields[field];
+                this.errors[field] = '';
+
+                // Apply static rules
+                if (this.rules[field]) {
+                    for (let rule of this.rules[field]) {
+                        if (!rule.check(value, this.fields)) {
+                            this.errors[field] = rule.message;
+                            return; // stop on first error
+                        }
+                    }
+                }
+
+                // Async validation for email
+                if (field === 'email' && value) {
+                    try {
+                        let response = await fetch(`/api/check-email/?email=${encodeURIComponent(value)}`);
+                        let data = await response.json();
+                        if (data.exists) {
+                            this.errors.email = "Email is already taken.";
+                        }
+
+                    } catch (e) {
+                        console.error("Email validation failed:", e);
+                    }
+                }
+            },
+            get isFormValid() {
+                return Object.values(this.errors).every(e => e === '') &&
+                       Object.values(this.fields).every(f => f.trim() !== '');
+            }
+        }
+    }
+</script>
+
+
+{% endblock main %}

@@ -1,0 +1,32 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+        {% block main %}
+
+        <!-- Start My Account Area -->
+        <div class="my-account-page ptb-120 overflow-hidden">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8 col-sm-10">
+                        <form class="login-form br-10" method="POST">
+                            {% csrf_token %}
+                            <h2>Verify Your OTP</h2>
+
+                            <input type="hidden" name="next" value="{{ request.GET.next }}">
+
+                            <input type="text" class="form-control mb-4" placeholder="OTP" name="otp" required>
+
+                            <button type="submit" class="default-btn d-inline-block mt-4">
+                                Verify
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- End My Account Area -->
+
+
+    {% endblock main %}

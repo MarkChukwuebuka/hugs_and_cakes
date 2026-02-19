@@ -1,0 +1,50 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+        {% block main %}
+
+        <!-- Start My Account Area -->
+        <div class="my-account-page ptb-120 overflow-hidden">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8 col-sm-10">
+                        <form class="login-form br-10" method="POST">
+                            {% csrf_token %}
+                            <h2>Log In To Your Account</h2>
+
+                            <input type="hidden" name="next" value="{{ request.GET.next }}">
+
+                            <input type="email" class="form-control mb-4" placeholder="Email" name="email" required>
+                            <input type="password" class="form-control mb-4" placeholder="Password" name="password" required>
+
+                            <div class="d-md-flex gap-5 align-items-center justify-content-between mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">
+                                        Keep me logged in
+                                    </label>
+                                </div>
+
+                                <a href="{% url 'forgot-password' %}" class="password">
+                                    Forgot your password?
+                                </a>
+                            </div>
+
+                            <button type="submit" class="default-btn d-inline-block mt-4">
+                                Login
+                            </button>
+
+                            <p class="mt-4 text-center">
+                                Don’t have an account?
+                                <a href="{% url 'signup' %}" class="fw-semibold">Register</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- End My Account Area -->
+
+
+    {% endblock main %}
