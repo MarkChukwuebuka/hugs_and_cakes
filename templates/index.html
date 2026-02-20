@@ -1,517 +1,13 @@
+{% extends 'partials/base.html' %}
+{% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-    
-<!-- Mirrored from htmltemplate.xyz/demos/feedo/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 14 Feb 2026 11:51:15 GMT -->
-<head>
-        <!-- Meta Tags -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block breadcrumbs %}
+{% endblock breadcrumbs %}
 
-        <!-- Title -->
-        <title>Feedo - Restaurant & Food Delivery HTML Template</title>
 
-        <!-- CSS Files -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <link rel="stylesheet" href="assets/css/tabler-icons.min.css">
-        <link rel="stylesheet" href="assets/css/scrollCue.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
-
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    </head>
-    <body>
-        <!-- Scroll Smoother -->
-        <div class="has-smooth" id="has_smooth"></div>
-        <!-- Start Top Header Area -->
-
-        <!-- Start Preloader Area -->
-        <div id="preloader">
-			<div id="container" class="container-preloader">
-				<div class="animation-preloader">
-					<div class="spinner"></div>
-					<div class="txt-loading">
-					</div>
-				</div>	
-				<div class="loader-section section-left"></div>
-				<div class="loader-section section-right"></div>
-			</div>
-		</div>	
-        <!-- End Preloader Area -->
-
-        <!-- Start Navbar Area -->
-        <nav class="navbar navbar-area bg-trasparent navbar-expand-lg" id="navbar">
-            <div class="container-fluid side-padding position-relative">
-                <a class="navbar-brand logo-brand p-0" href="index-2.html">
-                    <img class="main-logo" src="assets/images/main-logo.png" alt="image">
-                </a>
-                <a class="navbar-toggler" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button"
-                    aria-controls="offcanvasRight">
-                    <span class="burger-menu">
-                        <span class="top-bar"></span>
-                        <span class="middle-bar"></span>
-                        <span class="bottom-bar"></span>
-                    </span>
-                </a>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Home
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item active" href="index-2.html">Home 01
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="index-3.html">Home 02
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="index-4.html">Home 03
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Pages
-                            </a>
-                            
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="about-us.html">About Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="testimonials.html">Our Testimonials
-                                    </a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="dropdown-toggle dropdown-item" href="#" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        Category
-                                    </a>
-
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a class="dropdown-item" href="category.html">Category
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="category-details.html">Category Details
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="dropdown-toggle dropdown-item" href="#" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        Chef
-                                    </a>
-
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a class="dropdown-item" href="chef.html">Chef
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="chef-details.html">Chef Details
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="faq.html">FAQ's
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="reservation.html">Reservation
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="my-account.html">My Account
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="terms-conditions.html">Terms & Conditions
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="privacy-policy.html">Privacy Policy
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="error-404.html">Error 404
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Menu
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="menu.html">Menu
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="menu-details.html">Menu Details
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Services 
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="services.html">Services 
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="service-details.html">Service Details
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Shop 
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="shop.html">Shop 
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="shop-details.html">Shop Details
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="cart.html">Cart
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="checkout.html">Checkout
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Blog
-                            </a>
-                            
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="blog.html">Our Blog
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="blog-details.html">Blog Details
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="contact-us.html">
-                                Contact Us
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="others-options">
-                    <ul class="d-flex align-items-center shrink-0 ps-0 pe-0 mb-0 list-unstyled">
-                        <li>
-                            <button class="search-btn fw-medium p-0 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
-                                <i class="ti ti-search search1"></i>
-                            </button>
-                        </li>
-                        <li>
-                            <a href="reservation.html" class="default-btn">Book A Table</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- End Navbar Area -->
-        
-        <!-- Start Mobile Menu -->
-        <div class="side-modal mobile-navbar offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
-            <div class="offcanvas-header">
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
-                </button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="mobile-menu">
-                    <li class="mobile-menu-list active">
-                        <a href="javascript:void(0);">
-                            Home
-                        </a>
-
-                        <ul class="mobile-menu-items">
-                            <li>
-                                <a class="dropdown-item active" href="index-2.html">
-                                    Home Demo 1
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index-3.html">
-                                    Home Demo 2
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index-4.html">
-                                    Home Demo 3
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="mobile-menu-list">
-                        <a href="javascript:void(0);">
-                            Pages
-                        </a>
-
-                        <ul class="mobile-menu-items">
-                            <li>
-                                <a class="dropdown-item" href="about-us.html">
-                                    About Us
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="testimonials.html">
-                                    Our Testimonials
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="faq.html">
-                                    FAQ’s
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="my-account.html">
-                                    My Account
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="reservation.html">
-                                    Reservation
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="privacy-policy.html">
-                                    Privacy Policy
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="terms-conditions.html">
-                                    Terms & Conditions
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="error-404.html">
-                                    Error 404
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                    <li class="mobile-menu-list">
-                        <a href="javascript:void(0);">
-                            Category
-                        </a>
-
-                        <ul class="mobile-menu-items">
-                            <li>
-                                <a class="dropdown-item" href="category.html">
-                                    Category
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="category-details.html">
-                                    category Details
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                    <li class="mobile-menu-list">
-                        <a href="javascript:void(0);">
-                            Menu
-                        </a>
-
-                        <ul class="mobile-menu-items">
-                            <li>
-                                <a class="dropdown-item" href="menu.html">
-                                    Menu
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="menu-details.html">
-                                    Menu Details
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="mobile-menu-list">
-                        <a href="javascript:void(0);">
-                            Chef
-                        </a>
-
-                        <ul class="mobile-menu-items">
-                            <li>
-                                <a class="dropdown-item" href="chef.html">
-                                    Chef
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="chef-details.html">
-                                    Chef Details
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="mobile-menu-list">
-                        <a href="javascript:void(0);">
-                            Services
-                        </a>
-
-                        <ul class="mobile-menu-items">
-                            <li>
-                                <a class="dropdown-item" href="services.html">
-                                    Services
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="service-details.html">
-                                    Service Details
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="mobile-menu-list">
-                        <a href="javascript:void(0);">
-                            Shop
-                        </a>
-
-                        <ul class="mobile-menu-items">
-                            <li>
-                                <a class="dropdown-item" href="shop.html">
-                                    Shop
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="shop-details.html">
-                                    Shop Details
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="cart.html">
-                                    Cart
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="checkout.html">
-                                    Checkout
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="mobile-menu-list">
-                        <a href="javascript:void(0);">
-                            Blog
-                        </a>
-
-                        <ul class="mobile-menu-items">
-                            <li>
-                                <a class="dropdown-item" href="blog.html">
-                                    Our Blog
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="blog-details.html">
-                                    Blog Details
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="mobile-menu-list dropdown active">
-                        <a class="nav-link icon active" href="contact-us.html">
-                            Contact Us
-                        </a>
-                    </li>
-                </ul>
-
-                <div class="others-options">
-                    <ul class="d-lg-flex align-items-center shrink-0 ps-0 pe-0 mb-0 list-unstyled">
-                        <li class="mb-2">
-                            <button class="search-btn fw-medium p-0 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
-                                <i class="ti ti-search search1"></i>
-                            </button>
-                        </li>
-                        <li class="d-flex align-items-center gap-2 mb-2">
-                            <i class="ti ti-phone search1"></i>
-                            <a href="tel:1234567890" class="number">+1 (123) 456-7890</a>
-                        </li>
-                        <li>
-                            <a href="reservation.html" class="default-btn">Book A Table</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- End Mobile Menu -->
-
-        <!-- Search Modal -->
-        
-        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop">
-             <div class="offcanvas-header">
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <form class="popup-form">
-                    <input type="text" class="form-control" placeholder="Search here...">
-                    <button type="submit" class="p-btn">
-                        <i class="ti ti-search"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-        <!-- End Search Modal -->
-
-        <!-- Start Hero Area -->
-        <div class="hero-area position-relative overflow-hidden z-1" style="background-image: url(assets/images/hero/hero1.jpg);">
+{% block main %}
+<!-- Start Hero Area -->
+        <div class="hero-area position-relative overflow-hidden z-1" style="background-image: url(../static/assets/images/hero/hero1.jpg);">
             <div class="container-fluid side-padding">
                 <div class="row">
                     <div class="col-lg-7">
@@ -557,10 +53,10 @@
                 </div>
             </div>
             <div class="shape-image">
-                <img class="shape1" src="assets/images/shape/hero-shape1.png" alt="image">
-                <img class="shape2 bounce-x" src="assets/images/shape/hero-shape2.png" alt="image">
-                <img class="shape3 bounce-x " src="assets/images/shape/hero-shape3.png" alt="image">
-                <img class="shape4 ripple" src="assets/images/shape/hero-shape4.png" alt="image">
+                <img class="shape1" src="{% static 'assets/images/shape/hero-shape1.png' %}" alt="image">
+                <img class="shape2 bounce-x" src="{% static 'assets/images/shape/hero-shape2.png' %}" alt="image">
+                <img class="shape3 bounce-x " src="{% static 'assets/images/shape/hero-shape3.png' %}" alt="image">
+                <img class="shape4 ripple" src="{% static 'assets/images/shape/hero-shape4.png' %}" alt="image">
             </div>
         </div>
         <!-- End Hero Area -->
@@ -570,7 +66,7 @@
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-6" data-cues="slideInLeft" data-duration="800">
-                        <div class="welcome-image" style="background-image: url(assets/images/about/w-image-1.png);">
+                        <div class="welcome-image" style="background-image: url(../static/assets/images/about/w-image-1.png);">
                         </div>
                     </div>
                     <div class="col-lg-6" data-cues="slideInRight" data-duration="800">
@@ -582,7 +78,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="warps d-flex align-items-center gap-3">
                                         <div class="icon">
-                                            <img src="assets/images/icon/icon-1.png" alt="image">
+                                            <img src="{% static 'assets/images/icon/icon-1.png' %}" alt="image">
                                         </div>
                                         <h4 class="fs-18 mb-0">Fastest delivery on your door step</h4>
                                     </div>
@@ -590,7 +86,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="warps d-flex align-items-center gap-3 ps-0 ps-xl-4">
                                         <div class="icon">
-                                            <img src="assets/images/icon/icon-2.png" alt="image">
+                                            <img src="{% static 'assets/images/icon/icon-2.png' %}" alt="image">
                                         </div>
                                         <h4 class="fs-18 mb-0">A new look on the right food!</h4>
                                     </div>
@@ -602,9 +98,9 @@
                 </div>
             </div>
             <div class="shape-image">
-                <img class="shape bounce-y" src="assets/images/shape/f-shape-2.png" alt="image">
-                <img class="shape1" src="assets/images/shape/w-shape-3.png" alt="image">
-                <img class="shape2 movebounce1" src="assets/images/shape/w-shape-5.png" alt="image">
+                <img class="shape bounce-y" src="{% static 'assets/images/shape/f-shape-2.png' %}" alt="image">
+                <img class="shape1" src="{% static 'assets/images/shape/w-shape-3.png' %}" alt="image">
+                <img class="shape2 movebounce1" src="{% static 'assets/images/shape/w-shape-5.png' %}" alt="image">
             </div>
         </div>
         <!-- End Welcome Area -->
@@ -620,7 +116,7 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="category-card">
-                                <img class="br-10" src="assets/images/category/c-image-1.png" alt="image">
+                                <img class="br-10" src="{% static 'assets/images/category/c-image-1.png' %}" alt="image">
                                 <div class="card-body pt-4">
                                     <h4 class="fs-25 text-center"><a href="category-details.html">Pasta</a></h4>
                                 </div>
@@ -628,7 +124,7 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="category-card">
-                                <img class="br-10" src="assets/images/category/c-image-2.png" alt="image">
+                                <img class="br-10" src="{% static 'assets/images/category/c-image-2.png' %}" alt="image">
                                 <div class="card-body pt-4">
                                     <h4 class="fs-25 text-center"><a href="category-details.html">Burger</a></h4>
                                 </div>
@@ -636,7 +132,7 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="category-card">
-                                <img class="br-10" src="assets/images/category/c-image-3.png" alt="image">
+                                <img class="br-10" src="{% static 'assets/images/category/c-image-3.png' %}" alt="image">
                                 <div class="card-body pt-4">
                                     <h4 class="fs-25 text-center"><a href="category-details.html">Pizza</a></h4>
                                 </div>
@@ -644,7 +140,7 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="category-card">
-                                <img class="br-10" src="assets/images/category/c-image-4.png" alt="image">
+                                <img class="br-10" src="{% static 'assets/images/category/c-image-4.png' %}" alt="image">
                                 <div class="card-body pt-4">
                                     <h4 class="fs-25 text-center"><a href="category-details.html">Sushi</a></h4>
                                 </div>
@@ -652,7 +148,7 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="category-card">
-                                <img class="br-10" src="assets/images/category/c-image-5.png" alt="image">
+                                <img class="br-10" src="{% static 'assets/images/category/c-image-5.png' %}" alt="image">
                                 <div class="card-body pt-4">
                                     <h4 class="fs-25 text-center"><a href="category-details.html">Drink</a></h4>
                                 </div>
@@ -660,7 +156,7 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="category-card">
-                                <img class="br-10" src="assets/images/category/c-image-3.png" alt="image">
+                                <img class="br-10" src="{% static 'assets/images/category/c-image-3.png' %}" alt="image">
                                 <div class="card-body pt-4">
                                     <h4 class="fs-25 text-center"><a href="category-details.html">Pizza</a></h4>
                                 </div>
@@ -707,15 +203,15 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="a-image ps-0 ps-lg-5" data-cues="slideInRight" data-duration="800">
-                            <img class="br-10" src="assets/images/about/a-image-1.jpg" alt="image">
+                            <img class="br-10" src="{% static 'assets/images/about/a-image-1.jpg' %}" alt="image">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="shape-image">
-                <img class="shape1 bounce-y" src="assets/images/shape/about-shape-2.png" alt="image">
-                <img class="shape2 bounce-x" src="assets/images/shape/about-shape-1.png" alt="image">
-                <img class="shape3 bounce-y" src="assets/images/shape/abou-shape-3.png" alt="image">
+                <img class="shape1 bounce-y" src="{% static 'assets/images/shape/about-shape-2.png' %}" alt="image">
+                <img class="shape2 bounce-x" src="{% static 'assets/images/shape/about-shape-1.png' %}" alt="image">
+                <img class="shape3 bounce-y" src="{% static 'assets/images/shape/abou-shape-3.png' %}" alt="image">
             </div>
         </div>
         <!-- End About Area -->
@@ -730,31 +226,31 @@
                     </div>
                     <ul class="pe-0 ps-0 mb-0 list-unstyled">
                         <li>
-                            <img class="rounded-circle image1" src="assets/images/services/f-image-1.jpg" alt="image">
+                            <img class="rounded-circle image1" src="{% static 'assets/images/services/f-image-1.jpg' %}" alt="image">
                         </li>
                         <li>
-                            <img class="rounded-circle image2" src="assets/images/services/f-image-2.jpg" alt="image">
+                            <img class="rounded-circle image2" src="{% static 'assets/images/services/f-image-2.jpg' %}" alt="image">
                         </li>
                         <li>
-                            <img class="rounded-circle image3" src="assets/images/services/f-image-3.jpg" alt="image">
+                            <img class="rounded-circle image3" src="{% static 'assets/images/services/f-image-3.jpg' %}" alt="image">
                         </li>
                         <li>
-                            <img class="rounded-circle image4" src="assets/images/services/f-image-4.jpg" alt="image">
+                            <img class="rounded-circle image4" src="{% static 'assets/images/services/f-image-4.jpg' %}" alt="image">
                         </li>
                         <li>
-                            <img class="rounded-circle image5" src="assets/images/services/f-image-5.jpg" alt="image">
+                            <img class="rounded-circle image5" src="{% static 'assets/images/services/f-image-5.jpg' %}" alt="image">
                         </li>
                         <li>
-                            <img class="rounded-circle image6" src="assets/images/services/f-image-6.jpg" alt="image">
+                            <img class="rounded-circle image6" src="{% static 'assets/images/services/f-image-6.jpg' %}" alt="image">
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="shape-image">
-                <img class="shape1 rotateme" src="assets/images/shape/f-shape-1.png" alt="image">
-                <img class="shape2" src="assets/images/shape/w-shape-3.png" alt="image">
-                <img class="shape3 bounce-y" src="assets/images/shape/f-shape-3.png" alt="image">
-                <img class="shape4" src="assets/images/shape/hero-shape3.png" alt="image">
+                <img class="shape1 rotateme" src="{% static 'assets/images/shape/f-shape-1.png' %}" alt="image">
+                <img class="shape2" src="{% static 'assets/images/shape/w-shape-3.png' %}" alt="image">
+                <img class="shape3 bounce-y" src="{% static 'assets/images/shape/f-shape-3.png' %}" alt="image">
+                <img class="shape4" src="{% static 'assets/images/shape/hero-shape3.png' %}" alt="image">
             </div>
         </div>
         <!-- End Features Area -->
@@ -790,7 +286,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-1.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-1.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Perica Arepa</a></h3>
@@ -805,7 +301,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-2.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-2.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Fried Chicken</a></h3>
@@ -820,7 +316,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-3.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-3.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Chicken Skewers</a></h3>
@@ -835,7 +331,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-4.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-4.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Pangasius Basa</a></h3>
@@ -854,7 +350,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-3.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-3.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Chicken Skewers</a></h3>
@@ -869,7 +365,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-4.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-4.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Pangasius Basa</a></h3>
@@ -884,7 +380,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-1.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-1.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Perica Arepa</a></h3>
@@ -899,7 +395,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-2.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-2.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Fried Chicken</a></h3>
@@ -918,7 +414,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-4.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-4.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Pangasius Basa</a></h3>
@@ -933,7 +429,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-1.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-1.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Perica Arepa</a></h3>
@@ -948,7 +444,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-2.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-2.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Fried Chicken</a></h3>
@@ -963,7 +459,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-3.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-3.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Chicken Skewers</a></h3>
@@ -983,7 +479,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-3.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-3.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Chicken Skewers</a></h3>
@@ -998,7 +494,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-1.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-1.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Perica Arepa</a></h3>
@@ -1013,7 +509,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-2.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-2.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Fried Chicken</a></h3>
@@ -1028,7 +524,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-3.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-3.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Chicken Skewers</a></h3>
@@ -1043,7 +539,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-4.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-4.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Pangasius Basa</a></h3>
@@ -1062,7 +558,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-1.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-1.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Perica Arepa</a></h3>
@@ -1077,7 +573,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-2.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-2.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Fried Chicken</a></h3>
@@ -1092,7 +588,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-3.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-3.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Chicken Skewers</a></h3>
@@ -1107,7 +603,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="single-manu-card">
                                     <div class="manu-image">
-                                        <img src="assets/images/manu/manu-4.jpg" alt="image">
+                                        <img src="{% static 'assets/images/manu/manu-4.jpg' %}" alt="image">
                                     </div>
                                     <div class="card-content">
                                         <h3 class="fs-25"><a href="menu-details.html">Pangasius Basa</a></h3>
@@ -1141,7 +637,7 @@
                             <p>In today's world, restaurants and food delivery services play a vital role in meeting demands of modern lifestyles. From cozy local diners to global fast-food chains, restaurants offer a variety of cuisines to suit every taste. Meanwhile, food delivery platforms have revolutionized.</p>
                             <div class="warp-card d-md-flex gap-4 mb-4">
                                 <div class="icon mb-md-0 mb-3">
-                                    <img src="assets/images/icon/icon-3.png" alt="image">
+                                    <img src="{% static 'assets/images/icon/icon-3.png' %}" alt="image">
                                 </div>
                                 <div class="contant">
                                     <h4 class="fs-25">Free Delivery On Orders</h4>
@@ -1150,7 +646,7 @@
                             </div>
                             <div class="warp-card d-md-flex gap-4 mb-4">
                                 <div class="iconmb-md-0 mb-3">
-                                    <img src="assets/images/icon/icon-4.png" alt="image">
+                                    <img src="{% static 'assets/images/icon/icon-4.png' %}" alt="image">
                                 </div>
                                 <div class="contant">
                                     <h4 class="fs-25">On Time Delivery</h4>
@@ -1159,7 +655,7 @@
                             </div>
                             <div class="warp-card d-md-flex gap-4">
                                 <div class="icon mb-md-0 mb-3">
-                                    <img src="assets/images/icon/icon-5.png" alt="image">
+                                    <img src="{% static 'assets/images/icon/icon-5.png' %}" alt="image">
                                 </div>
                                 <div class="contant">
                                     <h4 class="fs-25">Best Quality Food</h4>
@@ -1172,8 +668,8 @@
                 </div>
             </div>
             <div class="shape-image">
-                <img class="shape bounce-x" src="assets/images/shape/c-shape.png" alt="image">
-                <img class="shape2 bounce-y" src="assets/images/shape/c-image-2.png" alt="image">
+                <img class="shape bounce-x" src="{% static 'assets/images/shape/c-shape.png' %}" alt="image">
+                <img class="shape2 bounce-y" src="{% static 'assets/images/shape/c-image-2.png' %}" alt="image">
             </div>
         </div>
         <!-- End Choose Area -->
@@ -1200,9 +696,9 @@
                                 <p>Enjoy restaurant-quality meals from the comfort of your home with our fast.</p>
                                 <a href="contact-us.html" class="default-btn">Order Now</a>
                             </div>
-                            <img class="d-image" src="assets/images/about/d-image-2.png" alt="image">
+                            <img class="d-image" src="{% static 'assets/images/about/d-image-2.png' %}" alt="image">
                             <div class="image-shape">
-                                <img class="shape" src="assets/images/shape/d-shape.png" alt="image">
+                                <img class="shape" src="{% static 'assets/images/shape/d-shape.png' %}" alt="image">
                             </div>
                         </div>
                     </div>
@@ -1222,7 +718,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="single-chef-card">
                             <div class="chef-image" id="my-element">
-                                <img class="br-10" src="assets/images/chef/chef-1.jpg" alt="image">
+                                <img class="br-10" src="{% static 'assets/images/chef/chef-1.jpg' %}" alt="image">
                                 <ul class="social ps-0 pe-0 mb-0 list-unstyled d-flex align-items-center gap-2">
                                     <li><a href="https://www.facebook.com/" target="_blank"><i class="ti ti-brand-facebook"></i></a></li>
                                     <li><a href="https://twitter.com/" target="_blank"><i class="ti ti-brand-x"></i></a></li>
@@ -1238,7 +734,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="single-chef-card">
                             <div class="chef-image active" id="my-element-1">
-                                <img class="br-10" src="assets/images/chef/chef-2.jpg" alt="image">
+                                <img class="br-10" src="{% static 'assets/images/chef/chef-2.jpg' %}" alt="image">
                                 <ul class="social ps-0 pe-0 mb-0 list-unstyled d-flex align-items-center gap-2">
                                     <li><a href="https://www.facebook.com/" target="_blank"><i class="ti ti-brand-facebook"></i></a></li>
                                     <li><a href="https://twitter.com/" target="_blank"><i class="ti ti-brand-x"></i></a></li>
@@ -1254,7 +750,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="single-chef-card">
                             <div class="chef-image" id="my-element-2">
-                                <img class="br-10" src="assets/images/chef/chef-3.jpg" alt="image">
+                                <img class="br-10" src="{% static 'assets/images/chef/chef-3.jpg' %}" alt="image">
                                 <ul class="social ps-0 pe-0 mb-0 list-unstyled d-flex align-items-center gap-2">
                                     <li><a href="https://www.facebook.com/" target="_blank"><i class="ti ti-brand-facebook"></i></a></li>
                                     <li><a href="https://twitter.com/" target="_blank"><i class="ti ti-brand-x"></i></a></li>
@@ -1270,7 +766,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="single-chef-card">
                             <div class="chef-image" id="my-element-3">
-                                <img class="br-10" src="assets/images/chef/chef-4.jpg" alt="image">
+                                <img class="br-10" src="{% static 'assets/images/chef/chef-4.jpg' %}" alt="image">
                                 <ul class="social ps-0 pe-0 mb-0 list-unstyled d-flex align-items-center gap-2">
                                     <li><a href="https://www.facebook.com/" target="_blank"><i class="ti ti-brand-facebook"></i></a></li>
                                     <li><a href="https://twitter.com/" target="_blank"><i class="ti ti-brand-x"></i></a></li>
@@ -1286,8 +782,8 @@
                 </div>
             </div>
             <div class="shape-image">
-                <img class="shape bounce-x" src="assets/images/shape/chef-shape-1.png" alt="image">
-                <img class="shape1 rotateme" src="assets/images/shape/chef-shape-2.png" alt="image">
+                <img class="shape bounce-x" src="{% static 'assets/images/shape/chef-shape-1.png' %}" alt="image">
+                <img class="shape1 rotateme" src="{% static 'assets/images/shape/chef-shape-2.png' %}" alt="image">
             </div>
         </div>
         <!-- End Chef Area -->
@@ -1307,7 +803,7 @@
                                 <i class="ti ti-quote quote"></i>
                                 <p>Enjoy restaurant-quality meals from the comfort of your home with our fast and reliable food delivery service. Whether you're craving a spicy biryani, a cheesy pizza, or a fresh salad, we bring your favorite dishes straight to your doorstep hot, fresh, and on time.</p>
                                 <div class="info">
-                                    <img src="assets/images/user/user-1.png" alt="image">
+                                    <img src="{% static 'assets/images/user/user-1.png' %}" alt="image">
                                     <h4 class="text-white fs-25">Oliver Bennett</h4>
                                     <span>Customer</span>
                                 </div>
@@ -1318,7 +814,7 @@
                                 <i class="ti ti-quote quote"></i>
                                 <p>Enjoy restaurant-quality meals from the comfort of your home with our fast and reliable food delivery service. Whether you're craving a spicy biryani, a cheesy pizza, or a fresh salad, we bring your favorite dishes straight to your doorstep hot, fresh, and on time.</p>
                                 <div class="info">
-                                    <img src="assets/images/user/user-1.png" alt="image">
+                                    <img src="{% static 'assets/images/user/user-1.png' %}" alt="image">
                                     <h4 class="text-white fs-25">Jackson Smith</h4>
                                     <span>Maneger</span>
                                 </div>
@@ -1329,7 +825,7 @@
                                 <i class="ti ti-quote quote"></i>
                                 <p>Enjoy restaurant-quality meals from the comfort of your home with our fast and reliable food delivery service. Whether you're craving a spicy biryani, a cheesy pizza, or a fresh salad, we bring your favorite dishes straight to your doorstep hot, fresh, and on time.</p>
                                 <div class="info">
-                                    <img src="assets/images/user/user-1.png" alt="image">
+                                    <img src="{% static 'assets/images/user/user-1.png' %}" alt="image">
                                     <h4 class="text-white fs-25">maicle Jackson</h4>
                                     <span>Developer</span>
                                 </div>
@@ -1408,8 +904,8 @@
                 </div>
             </div>
             <div class="shape-image">
-                <img class="shape" src="assets/images/shape/w-shape-3.png" alt="image">
-                <img class="shape1 bounce-x" src="assets/images/shape/r-shape-1.png" alt="image">
+                <img class="shape" src="{% static 'assets/images/shape/w-shape-3.png' %}" alt="image">
+                <img class="shape1 bounce-x" src="{% static 'assets/images/shape/r-shape-1.png' %}" alt="image">
             </div>
         </div>
         <!-- End Reservation Area -->
@@ -1426,7 +922,7 @@
                         <div class="single-blog-card">
                             <div class="blog-image">
                                 <a href="blog-details.html">
-                                    <img src="assets/images/blog/blog-1.jpg" alt="image">
+                                    <img src="{% static 'assets/images/blog/blog-1.jpg' %}" alt="image">
                                 </a>
                             </div>
                             <div class="blog-content">
@@ -1444,7 +940,7 @@
                         <div class="single-blog-card">
                             <div class="blog-image">
                                 <a href="blog-details.html">
-                                    <img src="assets/images/blog/blog-2.jpg" alt="image">
+                                    <img src="{% static 'assets/images/blog/blog-2.jpg' %}" alt="image">
                                 </a>
                             </div>
                             <div class="blog-content">
@@ -1462,7 +958,7 @@
                         <div class="single-blog-card">
                             <div class="blog-image">
                                 <a href="blog-details.html">
-                                    <img src="assets/images/blog/blog-3.jpg" alt="image">
+                                    <img src="{% static 'assets/images/blog/blog-3.jpg' %}" alt="image">
                                 </a>
                             </div>
                             <div class="blog-content">
@@ -1481,97 +977,4 @@
         </div>
         <!-- End Blog Area -->
 
-        <!-- Start Footer Area -->
-        <div class="footer-area bg-footer ptb-120 position-relative z-1">
-            <div class="container">
-                <div class="row g-4" data-cues="slideInUp" data-duration="800">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <div class="logo mb-4">
-                                <img src="assets/images/footer.png" alt="image">
-                            </div>
-                            <div class="map mb-4 fs-18">
-                                <a href="https://maps.app.goo.gl/byqdjUd9y3yP5oh96" target="_blank" class="fw-medium">123 Main Street, Suite 500, <span class="d-block"></span> New York, NY 12345</a>
-                            </div>
-                            <div class="map mb-4">
-                                <a href="mailto:hello@feedo.com" class="fs-18 fw-medium mb-3 d-block">mailto:hello@feedo.com</a>
-                                <a href="tel:1234567890" class="phone fs-18 tc-pry fw-semibold">+1 (123) 456-7890</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget ps-0 ps-xl-5">
-                            <h3 class="fs-25 mb-4">Quick Links</h3>
-                            <ul class="ps-0 pe-0 mb-0 list-unstyled">
-                                <li><a href="index-2.html">Home</a></li>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="menu.html">Menu</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact-us.html">Contact Us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <h3 class="fs-25 mb-4">Our Menu</h3>
-                            <ul class="ps-0 pe-0 mb-0 list-unstyled">
-                                <li><a href="menu-details.html">Italian Chines</a></li>
-                                <li><a href="menu-details.html">Chicken Meal</a></li>
-                                <li><a href="menu-details.html">Chicken Ball</a></li>
-                                <li><a href="menu-details.html">Burger Kings</a></li>
-                                <li><a href="menu-details.html">Maxican Food</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <h3 class="fs-25 mb-4">Opening Hours</h3>
-                            <ul class="pe-0 ps-0 mb-4 list-unstyled">
-                                <li class="d-flex align-items-center gap-5"><span>Mon - Thu:</span> 9:00 AM - 10:00 PM</li>
-                                <li class="d-flex align-items-center gap-5"><span>Fri - Sat:</span> 10:00 AM - 11:00 PM</li>
-                                <li class="d-flex align-items-center gap-5"><span>Sunday:</span> Closed</li>
-                            </ul>
-                            <ul class="social ps-0 pe-0 mb-0 list-unstyled d-flex align-items-center gap-2">
-                                <li><a href="https://www.facebook.com/" target="_blank"><i class="ti ti-brand-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="ti ti-brand-x"></i></a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank"><i class="ti ti-brand-instagram"></i></a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank"><i class="ti ti-brand-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="shape-image">
-                <img class="shape bounce-y" src="assets/images/shape/downlood-shape-2.png" alt="image">
-            </div>
-        </div>
-        <!-- End Footer Area -->
-         
-        <!-- Start Copyright Area -->
-        <div class="copy-right-area bg-footer">
-            <div class="container">
-                <div class="content">
-                    <p class="fs-20 mb-0 text-center">© Feedo All Rights Reserved By <a href="https://htmltemplate.xyz/"><img src="assets/images/copyright-logo.png" alt="image"></a></p>
-                </div>
-            </div>
-        </div>
-        <!-- End Copyright Area -->
-
-        <!-- Go top Btn -->
-        <div class="go-top d-flex align-items-center">
-            <i class="ti ti-arrow-narrow-up"></i>
-        </div>
-        <!-- Go top Btn End -->
-         
-        <!-- JS Files -->
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/swiper-bundle.min.js"></script>
-        <script src="assets/js/scrollCue.min.js"></script>
-        <script src="assets/js/smoothscroll.min.js"></script>
-        <script src="assets/js/fslightbox.min.js"></script>
-        <script src="assets/js/scrollCue.min.js"></script>
-        <script src="assets/js/feedo.js"></script>
-    </body>
-
-<!-- Mirrored from htmltemplate.xyz/demos/feedo/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 14 Feb 2026 11:53:34 GMT -->
-</html>
+    {% endblock main %}

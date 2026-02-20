@@ -22,7 +22,7 @@ class ResponseMessages(TextChoices):
     user_updated_successfully = "User updated successfully."
     otp_sent_to_email = "An OTP has been sent to your email address."
     invalid_or_expired_otp = "Invalid/Expired OTP."
-    valid_otp = "Valid OTP."
+    valid_otp = "OTP verification was successful."
     password_mismatch = "Password mismatch."
     too_many_failed_otp_verification_attempts = "Too many failed OTP attempts. Request a new OTP."
     otp_already_verified = "OTP already verified."

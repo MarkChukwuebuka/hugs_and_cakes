@@ -107,6 +107,7 @@ class AuthService(CustomRequestUtil):
                     user.is_verified = True
                     user.save(update_fields=["is_verified"])
                     login(self.request, user)
+                    return ResponseMessages.valid_otp, None
 
                 return user
 
