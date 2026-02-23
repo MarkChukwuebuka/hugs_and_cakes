@@ -71,13 +71,19 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="{% url 'contact' %}">
+                    <a class="nav-link" href="{% url 'menu' %}">
                         Menu
                     </a>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="{% url 'contact' %}">
+                    <a class="nav-link" href="{% url 'category' %}">
+                        Categories
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="{% url 'about' %}">
                         About
                     </a>
                 </li>
@@ -121,139 +127,22 @@
     </div>
     <div class="offcanvas-body">
         <ul class="mobile-menu">
-            <li class="mobile-menu-list">
-                <a href="javascript:void(0);">
+            <li class="mobile-menu-list dropdown active">
+                <a class="nav-link icon active" href="{% url 'home' %}">
                     Home
                 </a>
-
-                <ul class="mobile-menu-items">
-                    <li>
-                        <a class="dropdown-item" href="{% url 'home' %}">
-                            Home Demo 1
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="index-3.html">
-                            Home Demo 2
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="index-4.html">
-                            Home Demo 3
-                        </a>
-                    </li>
-                </ul>
             </li>
 
-            <li class="mobile-menu-list active">
-                <a href="javascript:void(0);">
-                    Pages
-                </a>
-
-                <ul class="mobile-menu-items">
-                    <li>
-                        <a class="dropdown-item" href="{% url 'about' %}">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="testimonials.html">
-                            Our Testimonials
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="faq.html">
-                            FAQ’s
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item active" href="my-account.html">
-                            My Account
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="reservation.html">
-                            Reservation
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="privacy-policy.html">
-                            Privacy Policy
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="terms-conditions.html">
-                            Terms & Conditions
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="error-404.html">
-                            Error 404
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="mobile-menu-list">
-                <a href="javascript:void(0);">
-                    Category
-                </a>
-
-                <ul class="mobile-menu-items">
-                    <li>
-                        <a class="dropdown-item" href="category.html">
-                            Category
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="category-details.html">
-                            category Details
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="mobile-menu-list">
-                <a href="javascript:void(0);">
+            <li class="mobile-menu-list dropdown active">
+                <a class="nav-link icon active" href="{% url 'menu' %}">
                     Menu
                 </a>
-
-                <ul class="mobile-menu-items">
-                    <li>
-                        <a class="dropdown-item" href="menu.html">
-                            Menu
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="menu-details.html">
-                            Menu Details
-                        </a>
-                    </li>
-                </ul>
             </li>
+
 
             <li class="mobile-menu-list">
                 <a href="javascript:void(0);">
-                    Chef
-                </a>
-
-                <ul class="mobile-menu-items">
-                    <li>
-                        <a class="dropdown-item" href="chef.html">
-                            Chef
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="chef-details.html">
-                            Chef Details
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="mobile-menu-list">
-                <a href="javascript:void(0);">
-                    Services
+                    Categories
                 </a>
 
                 <ul class="mobile-menu-items">
@@ -262,60 +151,21 @@
                             Services
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" href="service-details.html">
-                            Service Details
-                        </a>
-                    </li>
+
                 </ul>
             </li>
 
-            <li class="mobile-menu-list">
-                <a href="javascript:void(0);">
-                    Shop
-                </a>
 
-                <ul class="mobile-menu-items">
-                    <li>
-                        <a class="dropdown-item" href="shop.html">
-                            Shop
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="shop-details.html">
-                            Shop Details
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="cart.html">
-                            Cart
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="checkout.html">
-                            Checkout
-                        </a>
-                    </li>
-                </ul>
+            <li class="mobile-menu-list dropdown active">
+                <a class="nav-link icon active" href="{% url 'about' %}">
+                    About Us
+                </a>
             </li>
 
-            <li class="mobile-menu-list">
-                <a href="javascript:void(0);">
-                    Blog
+            <li class="mobile-menu-list dropdown active">
+                <a class="nav-link icon active" href="{% url 'contact' %}">
+                    Cart
                 </a>
-
-                <ul class="mobile-menu-items">
-                    <li>
-                        <a class="dropdown-item" href="blog.html">
-                            Our Blog
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="blog-details.html">
-                            Blog Details
-                        </a>
-                    </li>
-                </ul>
             </li>
 
             <li class="mobile-menu-list dropdown active">

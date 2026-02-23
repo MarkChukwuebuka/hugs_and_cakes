@@ -1,0 +1,65 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block main %}
+
+        <!-- Start Second Category Area -->
+        <div class="s-category-area bg-e9ecef ptb-120 position-relative z-1">
+            <div class="container">
+                <div class="section-title" data-cues="slideInDown" data-duration="800">
+                    <span class="sub-title">Categories</span>
+                    <h2>Choose Your Favorite Food Category</h2>
+                </div>
+                <div class="row g-4 justify-content-center" data-cues="slideInUp" data-duration="800">
+                    {% for category in categories %}
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="s-category-image text-center">
+                            <div class="image1">
+                                <img class="border-transform" src="{{ category.image.url }}" alt="image">
+                            </div>
+                            <h3 class="fs-25"><a href="category-details.html">{{ category.name }}</a></h3>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+                <div class="default-pagination mt-5">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination ps-0 pe-0 mb-0 justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link border-1" href="category.html" aria-label="Next">
+                                    <span aria-hidden="true">
+                                        <i class="ti ti-arrow-left"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link active border-1" href="category.html">01</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link border-1" href="category.html">02</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link border-1" href="category.html">03</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link border-1" href="category.html" aria-label="Next">
+                                    <span aria-hidden="true">
+                                        <i class="ti ti-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="shape-image">
+                <img class="shape" src="{% static 'assets/images/shape/banner.png' %}" alt="image">
+                <img class="shape1" src="{% static 'assets/images/shape/w-shape-1.png' %}" alt="image">
+            </div>
+        </div>
+        <!-- End Second Category Area -->
+
+{% endblock main %}

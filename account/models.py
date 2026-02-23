@@ -31,7 +31,7 @@ class User(AbstractUser, BaseModel):
     is_verified = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(f"{self.first_name}::{self.email}")
+        return str(f"{self.email}")
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

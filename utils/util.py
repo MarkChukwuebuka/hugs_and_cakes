@@ -1,9 +1,9 @@
 import logging
 import random
-import string
 import traceback
-from functools import wraps
 from typing import Union, TypeVar
+from datetime import datetime
+
 
 from django.conf import settings
 
@@ -19,11 +19,13 @@ from django.utils.timezone import is_aware, make_aware
 
 T = TypeVar("T")
 
+def make_slug(name):
+    return name.lower().replace(" ", "_")
 
-def generate_code(length):
-    characters = string.ascii_letters + string.digits
-    code = ''.join(random.choice(characters) for _ in range(length))
-    return code
+
+def make_order_id():
+    now = datetime.now()
+    return f"ORD-{now.strftime('%Y%m%d%H%M')}"
 
 
 class AppLogger:

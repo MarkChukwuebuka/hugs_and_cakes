@@ -28,7 +28,7 @@ class ModelService(CustomRequestUtil):
                 
                 main_object = model.objects.bulk_create(payload_list, ignore_conflicts=True)
                 
-                return main_object
+                return main_object, None
             else:
                 if has_created_by_attr:
                     payload["created_by"] = self.auth_user
@@ -36,7 +36,7 @@ class ModelService(CustomRequestUtil):
 
             main_object.save()
 
-            return main_object
+            return main_object, None
 
         except Exception as e:
             AppLogger.report(error=e, error_position=f"ModelService.create_model_instance - {model}")

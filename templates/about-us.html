@@ -1,0 +1,363 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block main %}
+        <!-- Start About Area -->
+        <div class="about-area ptb-120 position-relative z-1 overflow-hidden">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="section-heading mb-0" data-cues="slideInLeft" data-duration="800">
+                            <span class="sub-title">About Us</span>
+                            <h2>Restaurant quality Food Delivered To You</h2>
+                            <p>In today's fast-paced world, restaurants and food delivery services play a vital role in meeting the demands of modern lifestyles. From cozy local diners to global fast-food chains, restaurants offer a variety of cuisines to suit every taste.</p>
+                            <ul class="list-unstyled mb-0 pe-0 ps-0 pe-0">
+                                <li class="d-flex align-items-center gap-3">
+                                    <i class="ti ti-circle-check-filled"></i>
+                                    Delicious Food Delivered to Your Doorstep
+                                </li>
+                                <li class="d-flex align-items-center gap-3">
+                                    <i class="ti ti-circle-check-filled"></i>
+                                    Savor Every Bite Dine In or Order Out
+                                </li>
+                                <li class="d-flex align-items-center gap-3">
+                                    <i class="ti ti-circle-check-filled"></i>
+                                    Dine In Comfort with Exceptional Service
+                                </li>
+                                <li class="d-flex align-items-center gap-3">
+                                    <i class="ti ti-circle-check-filled"></i>
+                                    Order Online Hot Meals Quick Delivery
+                                </li>
+                            </ul>
+                            <a href="{% url 'about' %}" class="default-btn mt-4 mt-lg-5">About Us</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="a-image ps-0 ps-lg-5" data-cues="slideInRight" data-duration="800">
+                            <img class="br-10" src="{% static 'assets/images/about/a-image-1.jpg" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shape-image">
+                <img class="shape1 bounce-y" src="{% static 'assets/images/shape/about-shape-2.png' %}" alt="image">
+                <img class="shape2 bounce-x" src="{% static 'assets/images/shape/about-shape-1.png' %}" alt="image">
+                <img class="shape3" src="{% static 'assets/images/shape/abou-shape-3.png' %}" alt="image">
+            </div>
+        </div>
+        <!-- End About Area -->
+
+        <!-- Start Funfact Area -->
+        <div class="funfact-area ptb-120 bg-fffaf2" style="background-image: url(assets/images/hero/menu-bg.png);">
+            <div class="container">
+                <div class="section-title" data-cues="slideInDown" data-group="contentAnimation">
+                    <span class="sub-title">Fun Facts</span>
+                    <h2>Happily Achieved</h2>
+                </div>
+                <div class="row rowgap g-4" data-cues="slideInUp" data-group="contentAnimation">
+                    <div class="col-lg-3 col-6 col-md-6">
+                        <div class="count-card">
+                            <div class="icon mb-4">
+                                <img src="{% static 'assets/images/icon/icon-13.png' %}" alt="image">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <h2 class="counter lh-1 mb-2 fs-50">100</h2>
+                                <h2 class="lh-1 mb-2 fs-50">+</h2>
+                            </div>
+                            <span class="fw-medium fs-20">Burgers</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6 col-md-6">
+                        <div class="count-card">
+                            <div class="icon mb-4">
+                                <img src="{% static 'assets/images/icon/icon-14.png' %}" alt="image">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <h2 class="counter lh-1 mb-2 fs-50">250</h2>
+                                <h2 class="lh-1 mb-2 fs-50">+</h2>
+                            </div>
+                            <span class="fw-medium fs-20">French Fries</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6 col-md-6">
+                        <div class="count-card">
+                            <div class="icon mb-4">
+                                <img src="{% static 'assets/images/icon/icon-15.png' %}" alt="image">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <h2 class="counter lh-1 mb-2 fs-50">270</h2>
+                                <h2 class="lh-1 mb-2 fs-50">+</h2>
+                            </div>
+                            <span class="fw-medium fs-20">Hot Dogs</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6 col-md-6">
+                        <div class="count-card">
+                            <div class="icon mb-4">
+                                <img src="{% static 'assets/images/icon/icon-16.png' %}" alt="image">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <h2 class="counter lh-1 mb-2 fs-50">150</h2>
+                                <h2 class="lh-1 mb-2 fs-50">+</h2>
+                            </div>
+                            <span class="fw-medium fs-20">Pizza</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Funfact Area -->
+
+        <!-- Start Choose Us Area -->
+        <div class="choose-us-area bg-footer pt-120 position-relative z-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="section-heading mb-0" data-cues="slideInLeft" data-group="contentAnimation">
+                            <span class="sub-title">Why Choose Us</span>
+                            <h2>Why You Should Choose Us Fast Delivery</h2>
+                            <p>In today's fast-paced world, restaurants and food delivery services play a vital role in meeting the demands of modern lifestyles.</p>
+                            <ul class="pe-0 ps-0 mb-0 list-unstyled">
+                                <li class="d-flex align-items-center gap-3">
+                                    <i class="ti ti-checks"></i>
+                                    Taste the Difference Fresh Food Fast Delivery
+                                </li>
+                                <li class="d-flex align-items-center gap-3">
+                                    <i class="ti ti-checks"></i>
+                                    Fast & Reliable Food Delivery You Can Count On
+                                </li>
+                                <li class="d-flex align-items-center gap-3">
+                                    <i class="ti ti-checks"></i>
+                                    From cozy local diners to global fast-food chains
+                                </li>
+                                <li class="d-flex align-items-center gap-3">
+                                    <i class="ti ti-checks"></i>
+                                    Meanwhile food delivery platforms have revolutionized
+                                </li>
+                                <li class="d-flex align-items-center gap-3">
+                                    <i class="ti ti-checks"></i>
+                                    Enjoy restaurant-quality meals from the comfort your home
+                                </li>
+                            </ul>
+                            <a href="{% url 'about' %}" class="default-btn mt-4 mt-lg-5">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="c-image text-end" data-cues="slideInRight" data-group="contentAnimation">
+                            <img src="{% static 'assets/images/about/c-image-2.png' %}" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shape-image">
+                <img class="shape" src="{% static 'assets/images/shape/banner.png' %}" alt="image">
+            </div>
+        </div>
+        <!-- End Choose Us Area -->
+         
+        <!-- Start Chef Area -->
+        <div class="chef-area ptb-120 bg-e9ecef position-relative z-1">
+            <div class="container">
+                <div class="section-title" data-cues="slideInDown" data-group="contentAnimation">
+                    <span class="sub-title">Our Chef</span>
+                    <h2>Meet Our Professional Chef</h2>
+                </div>
+                <div class="row g-4" data-cues="slideInUp" data-group="contentAnimation">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-chef-card">
+                            <div class="chef-image" id="my-element">
+                                <img class="br-10" src="{% static 'assets/images/chef/chef-1.jpg" alt="image">
+                                <ul class="social ps-0 pe-0 mb-0 list-unstyled d-flex align-items-center gap-2">
+                                    <li><a href="https://www.facebook.com/" target="_blank"><i class="ti ti-brand-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/" target="_blank"><i class="ti ti-brand-x"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank"><i class="ti ti-brand-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="chef-content mt-4 text-center">
+                                <h3 class="fs-25"><a href="chef-details.html">James Anderson</a></h3>
+                                <span>Master Chef</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-chef-card">
+                            <div class="chef-image active" id="my-element-1">
+                                <img class="br-10" src="{% static 'assets/images/chef/chef-2.jpg" alt="image">
+                                <ul class="social ps-0 pe-0 mb-0 list-unstyled d-flex align-items-center gap-2">
+                                    <li><a href="https://www.facebook.com/" target="_blank"><i class="ti ti-brand-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/" target="_blank"><i class="ti ti-brand-x"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank"><i class="ti ti-brand-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="chef-content mt-4 text-center">
+                                <h3 class="fs-25"><a href="chef-details.html">Ethan Johnson </a></h3>
+                                <span>Executive Chef</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-chef-card">
+                            <div class="chef-image" id="my-element-2">
+                                <img class="br-10" src="{% static 'assets/images/chef/chef-3.jpg" alt="image">
+                                <ul class="social ps-0 pe-0 mb-0 list-unstyled d-flex align-items-center gap-2">
+                                    <li><a href="https://www.facebook.com/" target="_blank"><i class="ti ti-brand-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/" target="_blank"><i class="ti ti-brand-x"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank"><i class="ti ti-brand-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="chef-content mt-4 text-center">
+                                <h3 class="fs-25"><a href="chef-details.html">Oliver Bennett</a></h3>
+                                <span>Sous Chef</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-chef-card">
+                            <div class="chef-image" id="my-element-3">
+                                <img class="br-10" src="{% static 'assets/images/chef/chef-4.jpg" alt="image">
+                                <ul class="social ps-0 pe-0 mb-0 list-unstyled d-flex align-items-center gap-2">
+                                    <li><a href="https://www.facebook.com/" target="_blank"><i class="ti ti-brand-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/" target="_blank"><i class="ti ti-brand-x"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank"><i class="ti ti-brand-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="chef-content mt-4 text-center">
+                                <h3 class="fs-25"><a href="chef-details.html">Liam Robinson</a></h3>
+                                <span>Pastry Chef</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shape-image">
+                <img class="shape bounce-x" src="{% static 'assets/images/shape/chef-shape-1.png' %}" alt="image">
+                <img class="shape1 rotateme" src="{% static 'assets/images/shape/chef-shape-2.png' %}" alt="image">
+            </div>
+        </div>
+        <!-- End Chef Area -->
+
+        <!-- Start Tender Area -->
+        <div class="tender-area ptb-120 overflow-hidden">
+            <div class="container-fluid">
+                <div class="top-bar">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-6" data-cues="slideInLeft" data-group="contentAnimation">
+                            <div class="section-heading mb-0">
+                                <span class="sub-title">Tender Offers</span>
+                                <h2>A Variety of Tastes and Tender Delights</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-6" data-cues="slideInRight" data-group="contentAnimation">
+                            <div class="content">
+                                <p class="mb-0">In today's fast-paced world, restaurants and food delivery services play a vital role in meeting the demands of modern lifestyles. From cozy local diners to global fast-food chains play a vital role in meeting the demands of modern lifestyles In today's fast-paced world, restaurants and food delivery services play a vital role in meeting the demands of modern lifestyles</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4" data-cues="slideInUp" data-group="contentAnimation">
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="tender-card" id="my-element-4">
+                            <img src="{% static 'assets/images/category/t-image-1.jpg" alt="image">
+                            <div class="card-body text-center">
+                                <h3 class="fs-25"><a href="shop-details.html">Salad Manus</a></h3>
+                                <p>In today's fast-paced world, restaurants and food delivery services play a vital role in meeting the demands</p>
+                                <a href="shop-details.html" class="default-btn">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="tender-card active" id="my-element-5">
+                            <img src="{% static 'assets/images/category/t-image-2.jpg" alt="image">
+                            <div class="card-body text-center">
+                                <h3 class="fs-25"><a href="shop-details.html">Chicken Manus</a></h3>
+                                <p>In today's fast-paced world, restaurants and food delivery services play a vital role in meeting the demands</p>
+                                <a href="shop-details.html" class="default-btn">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="tender-card" id="my-element-6">
+                            <img src="{% static 'assets/images/category/t-image-3.jpg" alt="image">
+                            <div class="card-body text-center">
+                                <h3 class="fs-25"><a href="shop-details.html">Juice Manus</a></h3>
+                                <p>In today's fast-paced world, restaurants and food delivery services play a vital role in meeting the demands</p>
+                                <a href="shop-details.html" class="default-btn">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="tender-card" id="my-element-7">
+                            <img src="{% static 'assets/images/category/t-image-4.jpg" alt="image">
+                            <div class="card-body text-center">
+                                <h3 class="fs-25"><a href="shop-details.html">Burgers Manus</a></h3>
+                                <p>In today's fast-paced world, restaurants and food delivery services play a vital role in meeting the demands</p>
+                                <a href="shop-details.html" class="default-btn">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Tender Area -->
+
+        <!-- Start Clients Area -->
+        <div class="clients-area pb-120">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <div class="c-image pe-0 pe-xl-5" data-cues="slideInLeft" data-duration="800">
+                            <img class="br-10" src="{% static 'assets/images/user/clients-image.jpg" alt="image">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="swiper clientsSlider" data-cues="slideInRight" data-duration="800">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="c-content">
+                                        <i class="ti ti-quote quote"></i>
+                                        <p>Enjoy restaurant-quality meals from the comfort reliable home with our fast and reliable food delivery service. Whether you're craving a cheesy pizza, or a fresh salad, we bring your favorite dishes straight to your doorstep hot, fresh, and on time.</p>
+                                        <div class="info d-flex align-items-center gap-4">
+                                            <img src="{% static 'assets/images/user/user-1.png' %}" alt="image">
+                                            <div class="name">
+                                                <h4 class="fs-25">Oliver Bennett</h4>
+                                                <span>Customer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="c-content">
+                                        <i class="ti ti-quote quote"></i>
+                                        <p>Enjoy restaurant-quality meals from the comfort reliable home with our fast and reliable food delivery service. Whether you're craving a cheesy pizza, or a fresh salad, we bring your favorite dishes straight to your doorstep hot, fresh, and on time.</p>
+                                        <div class="info d-flex align-items-center gap-4">
+                                            <img src="{% static 'assets/images/user/user-1.png' %}" alt="image">
+                                            <div class="name">
+                                                <h4 class="fs-25">Oliver Bennett</h4>
+                                                <span>Customer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="c-content">
+                                        <i class="ti ti-quote quote"></i>
+                                        <p>Enjoy restaurant-quality meals from the comfort reliable home with our fast and reliable food delivery service. Whether you're craving a cheesy pizza, or a fresh salad, we bring your favorite dishes straight to your doorstep hot, fresh, and on time.</p>
+                                        <div class="info d-flex align-items-center gap-4">
+                                            <img src="{% static 'assets/images/user/user-1.png' %}" alt="image">
+                                            <div class="name">
+                                                <h4 class="fs-25">Oliver Bennett</h4>
+                                                <span>Customer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Clients Area -->
+
+{% endblock main %}

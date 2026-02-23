@@ -40,9 +40,9 @@ class ActiveAvailableManager(models.Manager):
 class BaseModel(models.Model):
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey("account.User", on_delete=models.SET_NULL, null=True, related_name="+")
+    created_by = models.ForeignKey("account.User", on_delete=models.SET_NULL, null=True, blank=True, related_name="+")
     updated_at = models.DateTimeField(auto_now=True)
-    updated_by = models.ForeignKey("account.User", null=True, on_delete=models.SET_NULL, related_name="+")
+    updated_by = models.ForeignKey("account.User", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
     deactivated_at = models.DateTimeField(null=True, blank=True)
     deactivated_by = models.ForeignKey(
         "account.User", null=True, blank=True, on_delete=models.SET_NULL, related_name="+"
@@ -84,15 +84,3 @@ class Activity(AppDbModel):
     def __str__(self):
         return "{} by {} - {}".format(self.activity_type, self.user, self.note)
 
-
-class ApiRequestLogger(AppDbModel):
-    user = models.ForeignKey("account.User", on_delete=models.CASCADE, null=True, related_name="+")
-    path = models.CharField(max_length=255)
-    ref_id = models.CharField(null=False, db_index=True, max_length=255)
-    headers = models.JSONField(default=dict)
-    request_data = models.JSONField(null=True, blank=True)
-    response_body = models.JSONField(null=True, blank=True)
-    status = models.CharField(max_length=100, blank=True)
-
-    class Meta:
-        verbose_name_plural = "API Request Logs"
