@@ -9,5 +9,5 @@ urlpatterns = [
 
 
     path('menu/', MenuView.as_view(), name='menu'),
-    path('categories/', CategoryView.as_view(), name='category'),
+    path('categories/', CategoryView.as_view(), name='categories'),
 ]

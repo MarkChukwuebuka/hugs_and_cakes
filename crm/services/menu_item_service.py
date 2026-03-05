@@ -1,4 +1,5 @@
 from django.core.cache import cache
+from django.core.paginator import Paginator
 from django.db.models import Q
 
 from crm.models import Category, MenuItem
@@ -35,10 +36,24 @@ class MenuItemService(CustomRequestUtil):
 
         return ResponseMessages.menu_item_created_successfully, None
 
-    def fetch_list(self, filter_params=None):
+    def fetch_list(self, category_slug=None, paginate=False):
         q = Q()
+        if category_slug:
+            q &= Q(category__code__iexact=category_slug)
 
-        return self.get_base_query().filter(q)
+        items = self.__get_base_query().filter(q)
+
+        if paginate:
+            paginator = Paginator(items, 8)
+
+            # get the current page number from request
+            page_number = self.request.GET.get("page", 1)
+            page_obj = paginator.get_page(page_number)
+
+            return page_obj
+
+
+        return items
 
     def __get_base_query(self):
         qs = MenuItem.available_objects.select_related("category")
@@ -47,7 +62,7 @@ class MenuItemService(CustomRequestUtil):
 
     def fetch_single_by_slug(self, menu_item_slug):
         def __handle_fetch():
-            menu_item = self.get_base_query().filter(slug=menu_item_slug).first()
+            menu_item = self.__get_base_query().filter(slug=menu_item_slug).first()
             if not menu_item:
                 return None, self.make_error(ErrorMessages.menu_item_not_found)
 
@@ -56,8 +71,19 @@ class MenuItemService(CustomRequestUtil):
         return cache.get_or_set(cache_key, __handle_fetch)
 
 
+    def fetch_single_by_id(self, menu_item_id):
+        def __handle_fetch():
+            menu_item = self.__get_base_query().filter(id=menu_item_id).first()
+            if not menu_item:
+                return None, self.make_error(ErrorMessages.menu_item_not_found)
+
+            return menu_item, None
+        cache_key = self.generate_cache_key(instance_id=menu_item_id, model=self.model)
+        return cache.get_or_set(cache_key, __handle_fetch)
+
+
     def update_single(self, payload, menu_item_slug):
-        menu_item, error = self.fetch_single_by_code(menu_item_slug)
+        menu_item, error = self.fetch_single_by_id(menu_item_slug)
         if not menu_item:
             return menu_item, error
 

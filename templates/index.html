@@ -114,58 +114,21 @@
                 </div>
                 <div class="swiper categorySlider">
                     <div class="swiper-wrapper">
+                        {% for category in categories %}
                         <div class="swiper-slide">
                             <div class="category-card">
-                                <img class="br-10" src="{% static 'assets/images/category/c-image-1.png' %}" alt="image">
+                                <img class="br-10" src="{{ category.cover_image.url }}" alt="image">
                                 <div class="card-body pt-4">
-                                    <h4 class="fs-25 text-center"><a href="category-details.html">Pasta</a></h4>
+                                    <h4 class="fs-25 text-center"><a href="category-details.html">{{ category.name }}</a></h4>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="category-card">
-                                <img class="br-10" src="{% static 'assets/images/category/c-image-2.png' %}" alt="image">
-                                <div class="card-body pt-4">
-                                    <h4 class="fs-25 text-center"><a href="category-details.html">Burger</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="category-card">
-                                <img class="br-10" src="{% static 'assets/images/category/c-image-3.png' %}" alt="image">
-                                <div class="card-body pt-4">
-                                    <h4 class="fs-25 text-center"><a href="category-details.html">Pizza</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="category-card">
-                                <img class="br-10" src="{% static 'assets/images/category/c-image-4.png' %}" alt="image">
-                                <div class="card-body pt-4">
-                                    <h4 class="fs-25 text-center"><a href="category-details.html">Sushi</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="category-card">
-                                <img class="br-10" src="{% static 'assets/images/category/c-image-5.png' %}" alt="image">
-                                <div class="card-body pt-4">
-                                    <h4 class="fs-25 text-center"><a href="category-details.html">Drink</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="category-card">
-                                <img class="br-10" src="{% static 'assets/images/category/c-image-3.png' %}" alt="image">
-                                <div class="card-body pt-4">
-                                    <h4 class="fs-25 text-center"><a href="category-details.html">Pizza</a></h4>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
+
                     </div>
                 </div>
                 <div class="c-btn text-center">
-                    <a href="category.html" class="default-btn mt-4 mt-lg-5">View All Categories</a>
+                    <a href="{% url 'categories' %}" class="default-btn mt-4 mt-lg-5">View All Categories</a>
                 </div>
             </div>
         </div>
@@ -263,22 +226,17 @@
                     <h2>Choose Your Favorite Food</h2>
                 </div>
                 <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
+
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">All</button>
                     </li>
+                    {% for category in categories %}
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Beverage</button>
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                            {{category.name}}</button>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Desserts</button>
-                    </li>
-                    
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-dishes-tab" data-bs-toggle="pill" data-bs-target="#pills-dishes" type="button" role="tab" aria-controls="pills-dishes" aria-selected="false">Main Dishes</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-sea-tab" data-bs-toggle="pill" data-bs-target="#pills-sea" type="button" role="tab" aria-controls="pills-sea" aria-selected="false">Sea Food</button>
-                    </li>
+                    {% endfor %}
+
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">

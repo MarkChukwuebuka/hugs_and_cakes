@@ -178,6 +178,12 @@ wheels = [
 ]
 
 [[package]]
+name = "django-qrcode"
+version = "0.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/8b/2f/4263fba93ae6a46776d6a8359ff1e192f38dffcc6f2925d29463375254fa/django-qrcode-0.3.tar.gz", hash = "sha256:88598af03087859c30b83ecd345dd3e988d739f13543e0bef9274eda18d55e0c", size = 4188, upload-time = "2011-12-13T10:03:08.524Z" }
+
+[[package]]
 name = "django-redis"
 version = "6.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -234,6 +240,7 @@ dependencies = [
     { name = "dj-database-url" },
     { name = "django" },
     { name = "django-disposable-email-checker" },
+    { name = "django-qrcode" },
     { name = "django-redis" },
     { name = "djangorestframework" },
     { name = "email-validator" },
@@ -250,6 +257,7 @@ requires-dist = [
     { name = "dj-database-url", specifier = ">=3.1.0" },
     { name = "django", specifier = ">=6.0.2" },
     { name = "django-disposable-email-checker", specifier = ">=2.0.4" },
+    { name = "django-qrcode", specifier = ">=0.3" },
     { name = "django-redis", specifier = ">=6.0.0" },
     { name = "djangorestframework", specifier = ">=3.16.1" },
     { name = "email-validator", specifier = ">=2.3.0" },

@@ -1,5 +1,6 @@
 {% extends 'partials/base.html' %}
 {% load static %}
+{% load currency_filter %}
 
 {% block main %}
 
@@ -10,377 +11,100 @@
                     <span class="sub-title">Popular Menu</span>
                     <h2>Choose Your Favorite Food</h2>
                 </div>
-                <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">All</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Beverage</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Desserts</button>
-                    </li>
-                    
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-dishes-tab" data-bs-toggle="pill" data-bs-target="#pills-dishes" type="button" role="tab" aria-controls="pills-dishes" aria-selected="false">Main Dishes</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-sea-tab" data-bs-toggle="pill" data-bs-target="#pills-sea" type="button" role="tab" aria-controls="pills-sea" aria-selected="false">Sea Food</button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-                        <div class="row g-4">
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-1.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Perica Arepa</a></h3>
-                                        <span>Chilled tomato, cucumber</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-2.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Fried Chicken</a></h3>
-                                        <span>Chicken, Olive Oil, Salt</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-3.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Chicken Skewers</a></h3>
-                                        <span>Slices, sweet, peppers-dill</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-4.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Pangasius Basa</a></h3>
-                                        <span>Mutton, Olive Oil, Salt</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-                        <div class="row g-4">
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-1.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Perica Arepa</a></h3>
-                                        <span>Chilled tomato, cucumber</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-2.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Fried Chicken</a></h3>
-                                        <span>Chicken, Olive Oil, Salt</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-3.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Chicken Skewers</a></h3>
-                                        <span>Slices, sweet, peppers-dill</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-4.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Pangasius Basa</a></h3>
-                                        <span>Mutton, Olive Oil, Salt</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-                        <div class="row g-4">
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-1.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Perica Arepa</a></h3>
-                                        <span>Chilled tomato, cucumber</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-2.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Fried Chicken</a></h3>
-                                        <span>Chicken, Olive Oil, Salt</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-3.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Chicken Skewers</a></h3>
-                                        <span>Slices, sweet, peppers-dill</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-4.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Pangasius Basa</a></h3>
-                                        <span>Mutton, Olive Oil, Salt</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="tab-pane fade" id="pills-dishes" role="tabpanel" aria-labelledby="pills-dishes-tab" tabindex="0">
-                        <div class="row g-4">
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-1.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Perica Arepa</a></h3>
-                                        <span>Chilled tomato, cucumber</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-2.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Fried Chicken</a></h3>
-                                        <span>Chicken, Olive Oil, Salt</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-3.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Chicken Skewers</a></h3>
-                                        <span>Slices, sweet, peppers-dill</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-4.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Pangasius Basa</a></h3>
-                                        <span>Mutton, Olive Oil, Salt</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-sea" role="tabpanel" aria-labelledby="pills-sea-tab" tabindex="0">
-                        <div class="row g-4">
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-1.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Perica Arepa</a></h3>
-                                        <span>Chilled tomato, cucumber</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-2.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Fried Chicken</a></h3>
-                                        <span>Chicken, Olive Oil, Salt</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-3.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Chicken Skewers</a></h3>
-                                        <span>Slices, sweet, peppers-dill</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="single-manu-card">
-                                    <div class="manu-image">
-                                        <img src="assets/images/manu/manu-4.jpg" alt="image">
-                                    </div>
-                                    <div class="card-content">
-                                        <h3 class="fs-25"><a href="menu-details.html">Pangasius Basa</a></h3>
-                                        <span>Mutton, Olive Oil, Salt</span>
-                                        <div class="price d-flex align-items-center justify-content-between">
-                                            <a href="cart.html" class="default-btn">Order Now</a>
-                                            <h5>$25</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
+                <!-- CATEGORY FILTER -->
+                <ul class="nav nav-pills justify-content-center mb-4">
+                    <li class="nav-item">
+                        <a class="nav-link {% if not selected_category %}active{% endif %}"
+                           href="?">
+                            All
+                        </a>
+                    </li>
+
+                    {% for category in categories %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if selected_category and selected_category.id == category.id %}active{% endif %}"
+                           href="?category={{ category.code }}">
+                            {{ category.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                <!-- MENU ITEMS -->
+                <div class="row g-4">
+                    {% for item in page_obj %}
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="single-manu-card">
+                            <div class="manu-image">
+                                <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="fs-25">
+<!--                                    <a href="">-->
+                                        {{ item.name }}
+<!--                                    </a>-->
+                                </h3>
+                                <span>{{ item.description|truncatewords:6 }}</span>
+                                <div class="price d-flex align-items-center justify-content-between">
+                                    <h6>{{ item.base_price | naira }}</h6>
+                                </div>
+                                <div class="price d-flex align-items-center justify-content-between">
+                                    <a href="{% url 'add-to-cart' item.id %}" class="default-btn">
+                                        Order Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="text-center">
+                        <p>No menu items found.</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% if page_obj.has_other_pages %}
                 <div class="default-pagination mt-5">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination ps-0 pe-0 mb-0 justify-content-center">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+
+                            {% if page_obj.has_previous %}
                             <li class="page-item">
-                                <a class="page-link border-1" href="menu.html" aria-label="Next">
-                                    <span aria-hidden="true">
-                                        <i class="ti ti-arrow-left"></i>
-                                    </span>
+                                <a class="page-link"
+                                   href="?page={{ page_obj.previous_page_number }}{% if selected_category %}&category={{ selected_category.slug }}{% endif %}">
+                                    «
                                 </a>
                             </li>
-                            <li class="page-item">
-                                <a class="page-link active border-1" href="menu.html">01</a>
+                            {% endif %}
+
+                            {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                            <li class="page-item active">
+                                <span class="page-link">{{ num }}</span>
                             </li>
+                            {% else %}
                             <li class="page-item">
-                                <a class="page-link border-1" href="menu.html">02</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link border-1" href="menu.html">03</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link border-1" href="menu.html" aria-label="Next">
-                                    <span aria-hidden="true">
-                                        <i class="ti ti-arrow-right"></i>
-                                    </span>
+                                <a class="page-link"
+                                   href="?page={{ num }}{% if selected_category %}&category={{ selected_category.slug }}{% endif %}">
+                                    {{ num }}
                                 </a>
                             </li>
+                            {% endif %}
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="?page={{ page_obj.next_page_number }}{% if selected_category %}&category={{ selected_category.slug }}{% endif %}">
+                                    »
+                                </a>
+                            </li>
+                            {% endif %}
+
                         </ul>
                     </nav>
                 </div>
+                {% endif %}
             </div>
         </div>
         <!-- End Manu Area -->

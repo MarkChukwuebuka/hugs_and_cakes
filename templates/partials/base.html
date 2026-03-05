@@ -76,11 +76,6 @@
                     </a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="{% url 'category' %}">
-                        Categories
-                    </a>
-                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="{% url 'about' %}">
@@ -110,9 +105,9 @@
                         <i class="ti ti-search search1"></i>
                     </button>
                 </li>
-                <li>
-                    <a href="reservation.html" class="default-btn">Book A Table</a>
-                </li>
+<!--                <li>-->
+<!--                    <a href="reservation.html" class="default-btn">Book A Table</a>-->
+<!--                </li>-->
             </ul>
         </div>
     </div>
@@ -139,21 +134,6 @@
                 </a>
             </li>
 
-
-            <li class="mobile-menu-list">
-                <a href="javascript:void(0);">
-                    Categories
-                </a>
-
-                <ul class="mobile-menu-items">
-                    <li>
-                        <a class="dropdown-item" href="services.html">
-                            Services
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
 
 
             <li class="mobile-menu-list dropdown active">
@@ -184,11 +164,11 @@
                 </li>
                 <li class="d-flex align-items-center gap-2 mb-2">
                     <i class="ti ti-phone search1"></i>
-                    <a href="tel:1234567890" class="number">+1 (123) 456-7890</a>
+                    <a href="tel:1234567890" class="number">{{ app_phone_number }}</a>
                 </li>
-                <li>
-                    <a href="reservation.html" class="default-btn">Book A Table</a>
-                </li>
+<!--                <li>-->
+<!--                    <a href="reservation.html" class="default-btn">Book A Table</a>-->
+<!--                </li>-->
             </ul>
         </div>
     </div>
@@ -248,10 +228,8 @@
                     </div>
                     <p class="mb-4">Meanwhile, food delivery platforms revolutionized the way people enjoy meals by bringing freshly prepared</p>
                     <ul class="social ps-0 pe-0 mb-0 list-unstyled d-flex align-items-center gap-2">
-                        <li><a href="https://www.facebook.com/" target="_blank"><i class="ti ti-brand-facebook"></i></a></li>
-                        <li><a href="https://twitter.com/" target="_blank"><i class="ti ti-brand-x"></i></a></li>
-                        <li><a href="https://www.instagram.com/" target="_blank"><i class="ti ti-brand-instagram"></i></a></li>
-                        <li><a href="https://www.linkedin.com/" target="_blank"><i class="ti ti-brand-linkedin"></i></a></li>
+                        <li><a href="{{tiktok_url}}" target="_blank"><i class="ti ti-brand-tiktok"></i></a></li>
+                        <li><a href="{{instagram_url}}" target="_blank"><i class="ti ti-brand-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -261,8 +239,7 @@
                     <ul class="ps-0 pe-0 mb-0 list-unstyled">
                         <li><a href="{% url 'home' %}">Home</a></li>
                         <li><a href="{% url 'about' %}">About Us</a></li>
-                        <li><a href="menu.html">Menu</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="{% url 'menu' %}">Menu</a></li>
                         <li><a href="{% url 'contact' %}">Contact Us</a></li>
                     </ul>
                 </div>
@@ -271,11 +248,9 @@
                 <div class="footer-widget">
                     <h3 class="fs-25 mb-4">Our Menu</h3>
                     <ul class="ps-0 pe-0 mb-0 list-unstyled">
-                        <li><a href="menu-details.html">Italian Chines</a></li>
-                        <li><a href="menu-details.html">Chicken Meal</a></li>
-                        <li><a href="menu-details.html">Chicken Ball</a></li>
-                        <li><a href="menu-details.html">Burger Kings</a></li>
-                        <li><a href="menu-details.html">Maxican Food</a></li>
+                        {% for category in categories %}
+                            <li><a href="{% url 'menu' %}?category={{category.code}}">{{ category.name }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -284,15 +259,15 @@
                     <h3 class="fs-25 mb-4">Contact Us</h3>
                     <div class="info-card mb-3">
                         <h4 class="mb-2 lh-1 fs-20">Address:</h4>
-                        <a href="https://maps.app.goo.gl/byqdjUd9y3yP5oh96" target="_blank">123 Main Street, Suite 500, New York</a>
+                        <a href="{{app_map_url}}" target="_blank">{{app.address}}</a>
                     </div>
                     <div class="info-card mb-3">
                         <h4 class="mb-2 lh-1 fs-20">Phone:</h4>
-                        <a href="tel:123456789">+123 456 789</a>
+                        <a href="tel:123456789">{{ app_phone_number }}</a>
                     </div>
                     <div class="info-card">
                         <h4 class="mb-2 lh-1 fs-20">Email:</h4>
-                        <a href="mailto:info@feedo.com">info@feedo.com</a>
+                        <a href="mailto:{{app_address}}">{{app_address}}</a>
                     </div>
                 </div>
             </div>
@@ -308,7 +283,7 @@
 <div class="copy-right-area bg-footer">
     <div class="container">
         <div class="content">
-            <p class="fs-20 mb-0 text-center">© Feedo All Rights Reserved By <img src="{% static 'assets/images/copyright-logo.png' %}" alt="image"></p>
+            <p class="fs-20 mb-0 text-center">&copy; {% now 'Y' %} {{app_name}}. All rights reserved.</p>
         </div>
     </div>
 </div>
@@ -328,6 +303,37 @@
 <script src="{% static 'assets/js/fslightbox.min.js' %}"></script>
 <script src="{% static 'assets/js/scrollCue.min.js' %}"></script>
 <script src="{% static 'assets/js/feedo.js' %}"></script>
+
+<script>
+    const csrfToken = '{{ csrf_token }}';
+
+    function showToast(message, type = "info") {
+    const container = document.querySelector(".message-container");
+    if (!container) return;
+
+    const toast = document.createElement("div");
+    toast.className = `message-toast ${type}`;
+    toast.setAttribute("role", "alert");
+
+    toast.innerHTML = `
+        <div class="message-body">${message}</div>
+        <button type="button" class="close-button" aria-label="Close" title="Close">×</button>
+    `;
+
+    // Close button handler
+    toast.querySelector(".close-button").addEventListener("click", () => {
+        toast.remove();
+    });
+
+    // Auto remove after 5s
+    setTimeout(() => {
+        toast.remove();
+    }, 5000);
+
+    container.appendChild(toast);
+}
+
+</script>
 
 {% include '../partials/messages.html' %}
 </body>

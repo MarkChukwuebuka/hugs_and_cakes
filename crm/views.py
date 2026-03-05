@@ -1,7 +1,11 @@
 from django.views import View
 
+from crm.models import Table
+from crm.services.cart_service import CartService
 from crm.services.category_service import CategoryService
 from crm.services.menu_item_service import MenuItemService
+from crm.services.table_service import TableService
+from utils.constants.messages import ResponseMessages, ErrorMessages
 from utils.util import CustomRequestUtil
 
 
@@ -13,6 +17,8 @@ class HomeView(View, CustomRequestUtil):
     }
 
     def get(self, request, *args, **kwargs):
+        category_service = CategoryService(request)
+        self.extra_context_data["categories"] = category_service.fetch_list()
         return self.process_request(request)
 
 
@@ -54,11 +60,29 @@ class CategoryView(View, CustomRequestUtil):
 class MenuView(View, CustomRequestUtil):
     template_name = 'menu.html'
     template_on_error = 'menu.html'
-    context_object_name = 'menu_items'
+    context_object_name = 'page_obj'
     extra_context_data = {
         "title": "Menu",
     }
 
     def get(self, request, *args, **kwargs):
         menu_item_service = MenuItemService(request)
-        return self.process_request(request, target_function=menu_item_service.fetch_list)
+        category_service = CategoryService(request)
+        table_service = TableService(request)
+
+        category_slug = request.GET.get("category")
+        table_token = request.GET.get("table")
+
+        if table_token:
+            table = Table.active_available_objects.filter(qr_token=table_token, is_active=True)
+            request.session["table_id"] = table.id
+        else:
+            table_id = request.session.get("table_id")
+            table = Table.active_available_objects.filter(id=table_id).first()
+
+        self.extra_context_data["categories"] = category_service.fetch_list()
+        self.extra_context_data["selected_category"] = category_service.fetch_single_by_code(category_slug)
+
+        return self.process_request(
+            request, target_function=menu_item_service.fetch_list, category_slug=category_slug, paginate=True
+        )

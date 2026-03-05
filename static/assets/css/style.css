@@ -1619,6 +1619,18 @@ Page Banner Area CSS
 .single-manu-card .manu-image img {
   border-radius: 10px 10px 0 0;
 }
+
+.manu-image {
+    height: 200px;       /* choose your desired height */
+    overflow: hidden;
+}
+
+.manu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .single-manu-card .card-content {
   padding: 25px;
   background-color: #f3f3f3;

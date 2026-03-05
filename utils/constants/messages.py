@@ -68,6 +68,10 @@ class ResponseMessages(TextChoices):
     menu_item_updated_successfully = "Menu item updated successfully."
     menu_item_deleted_successfully = "Menu item deleted successfully."
 
+    #cart
+    item_added_to_cart = "Item added successfully."
+    item_updated_cart = "Item updated successfully."
+    item_deleted_from_cart = "Item deleted successfully."
 
 
 
@@ -90,4 +94,5 @@ class ErrorMessages(TextChoices):
     menu_item_already_exists = "Menu Item already exists."
     menu_item_not_found = "Menu Item not found."
     menu_item_with_that_name_already_exists = "Menu Item with that name already exists."
+
 
