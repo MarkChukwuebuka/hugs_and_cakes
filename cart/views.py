@@ -15,10 +15,10 @@ def add_to_cart(request):
 
     if request.method == "POST":
         data = json.loads(request.body)
-        product_id = int(data.get("product_id"))
-        product_qty = int(data.get("product_qty", 1))
+        menu_item_id = int(data.get("menu_item_id"))
+        menu_item_qty = int(data.get("menu_item_qty", 1))
 
-        res, _ = cart_service.add(product_id, product_qty)
+        res, _ = cart_service.add(menu_item_id, menu_item_qty)
 
         cart = request.session.get("cart")
         cart_count = len(cart) if cart else 0
@@ -38,10 +38,10 @@ def update_cart(request):
 
     if request.method == 'POST':
         data = json.loads(request.body)
-        product_id = data.get("product_id")
-        quantity = data.get("product_qty")
+        menu_item_id = data.get("menu_item_id")
+        quantity = data.get("menu_item_qty")
 
-        res, _ = cart_service.add(product_id, quantity, True)
+        res, _ = cart_service.add(menu_item_id, quantity, True)
 
 
         return JsonResponse({
@@ -58,9 +58,9 @@ def remove_from_cart(request):
 
     if request.method == "POST":
         data = json.loads(request.body)
-        product_id = data.get("product_id")
+        menu_item_id = data.get("menu_item_id")
 
-        res, _ = cart_service.remove(product_id)
+        res, _ = cart_service.remove(menu_item_id)
 
         cart = request.session.get("cart")
         cart_count = len(cart) if cart else 0

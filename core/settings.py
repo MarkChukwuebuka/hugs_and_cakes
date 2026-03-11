@@ -72,6 +72,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'crm.context_processors.app_settings',
+                'cart.context_processors.cart',
+
             ],
         },
     },
@@ -162,6 +165,8 @@ ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", None)
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", None)
 ADMIN_PHONE_NUMBER = os.getenv("ADMIN_PHONE_NUMBER", None)
 
+
+CART_SESSION_ID = 'cart'
 
 
 DEFAULT_CACHE_TIMEOUT = 600

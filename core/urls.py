@@ -7,4 +7,5 @@ urlpatterns = [
     path('', include('crm.urls')),
     path('', include('account.urls')),
     path('', include('order.urls')),
+    path('', include('cart.urls')),
 ]

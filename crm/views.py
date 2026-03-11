@@ -1,11 +1,9 @@
 from django.views import View
 
 from crm.models import Table
-from crm.services.cart_service import CartService
 from crm.services.category_service import CategoryService
 from crm.services.menu_item_service import MenuItemService
 from crm.services.table_service import TableService
-from utils.constants.messages import ResponseMessages, ErrorMessages
 from utils.util import CustomRequestUtil
 
 

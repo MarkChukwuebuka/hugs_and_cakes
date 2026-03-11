@@ -50,9 +50,14 @@
                                     <h6>{{ item.base_price | naira }}</h6>
                                 </div>
                                 <div class="price d-flex align-items-center justify-content-between">
-                                    <a href="{% url 'add-to-cart' item.id %}" class="default-btn">
+                                    <button class="default-btn addcart-button"
+                                            id="cart-btn-{{ item.id }}"
+                                            data-url="{% url 'add_to_cart' %}"
+                                            data-remove-url="{% url 'remove_from_cart' %}"
+                                            data-product-id="{{ item.id }}"
+                                            data-quantity="1">
                                         Order Now
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
