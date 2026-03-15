@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     "X-CSRFToken": csrfToken,  // make sure csrfToken is defined in template
                 },
                 body: JSON.stringify({ menu_item_id: menuItemId, menu_item_qty: qty }),
+
             })
             .then(response => {
                 if (!response.ok) {

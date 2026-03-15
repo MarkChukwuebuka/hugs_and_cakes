@@ -1,7 +1,9 @@
 
 import json
+
+from django.contrib import messages
 from django.http import JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
@@ -73,43 +75,23 @@ def remove_from_cart(request):
 
     return None
 
+def cart(request):
 
+    if not request.session.get("cart"):
+        messages.error(request, "There are no items in your cart")
+        return redirect("home")
 
-class CartView(View, CustomRequestUtil):
-    template_name = 'cart.html'
-    template_on_error = 'cart.html'
+    context = {
+        "title": "Cart"
+    }
+    return render(request, 'cart.html', context)
 
-    def get(self, request, *args, **kwargs):
-        self.context_object_name = "cart"
-        cart_service = CartService(request)
-        return self.process_request(request, target_function=cart_service.fetch_cart)
-
-
-    def post(self, request, *args, **kwargs):
-        cart_service = CartService(request)
-        return self.process_request(
-            request, target_function=cart_service.add_to_cart, item_id=item_id
-        )
-
-# def cart_view(request):
-#     cart = request.session.get("cart", {})
-#     items = []
-#     total = 0
+# class CartView(View, CustomRequestUtil):
+#     template_name = 'cart.html'
+#     template_on_error = 'cart.html'
 #
-#     for item_id, data in cart.items():
-#         item = MenuItem.objects.get(id=item_id)
-#         quantity = data["quantity"]
-#         subtotal = item.base_price * quantity
+#     def get(self, request, *args, **kwargs):
+#         # self.context_object_name = "cart"
+#         cart_service = CartService(request)
+#         return self.process_request(request, target_function=cart_service.fetch_cart)
 #
-#         items.append({
-#             "item": item,
-#             "quantity": quantity,
-#             "subtotal": subtotal,
-#         })
-#
-#         total += subtotal
-#
-#     return render(request, "cart.html", {
-#         "cart_items": items,
-#         "total": total,
-#     })

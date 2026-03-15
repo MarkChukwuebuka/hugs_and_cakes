@@ -36,7 +36,7 @@ class MenuItem(BaseModel):
     slug = models.CharField(max_length=255, blank=True, db_index=True, unique=True)
     description = models.TextField(blank=True, null=True)
     percentage_discount = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    base_price = models.DecimalField(max_digits=10, decimal_places=2, db_index=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2, db_index=True)
     image = CloudinaryField(name="image", blank=True, null=True)
 
     is_available = models.BooleanField(default=True, db_index=True)

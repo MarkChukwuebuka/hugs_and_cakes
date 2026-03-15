@@ -18,7 +18,7 @@ class MenuItemService(CustomRequestUtil):
 
         name = payload.get("name")
 
-        menu_item, is_created = self.__get_base_query().objects.get_or_create(
+        menu_item, is_created = self.get_base_query().objects.get_or_create(
             name__iexact=name,
             defaults=dict(
                 description=payload.get("description"),
@@ -41,7 +41,7 @@ class MenuItemService(CustomRequestUtil):
         if category_slug:
             q &= Q(category__code__iexact=category_slug)
 
-        items = self.__get_base_query().filter(q)
+        items = self.get_base_query().filter(q)
 
         if paginate:
             paginator = Paginator(items, 8)
@@ -55,14 +55,14 @@ class MenuItemService(CustomRequestUtil):
 
         return items
 
-    def __get_base_query(self):
+    def get_base_query(self):
         qs = MenuItem.available_objects.select_related("category")
         return qs
 
 
     def fetch_single_by_slug(self, menu_item_slug):
         def __handle_fetch():
-            menu_item = self.__get_base_query().filter(slug=menu_item_slug).first()
+            menu_item = self.get_base_query().filter(slug=menu_item_slug).first()
             if not menu_item:
                 return None, self.make_error(ErrorMessages.menu_item_not_found)
 
@@ -73,7 +73,7 @@ class MenuItemService(CustomRequestUtil):
 
     def fetch_single_by_id(self, menu_item_id):
         def __handle_fetch():
-            menu_item = self.__get_base_query().filter(id=menu_item_id).first()
+            menu_item = self.get_base_query().filter(id=menu_item_id).first()
             if not menu_item:
                 return None, self.make_error(ErrorMessages.menu_item_not_found)
 
@@ -89,7 +89,7 @@ class MenuItemService(CustomRequestUtil):
 
         name = payload.get("name")
         if name:
-            existing_menu_item = self.__get_base_query().filter(
+            existing_menu_item = self.get_base_query().filter(
                 name__iexact=name
             ).exclude(id=menu_item.id).exists()
 

@@ -1,6 +1,7 @@
 from django.conf import settings
 
 from crm.services.menu_item_service import MenuItemService
+from utils.constants.messages import ErrorMessages, ResponseMessages
 from utils.util import CustomRequestUtil
 
 
@@ -22,7 +23,7 @@ class CartService(CustomRequestUtil):
 
     def __iter__(self):
         menu_item_ids = self.cart.keys()
-        menu_items = self.menu_item_service.__get_base_query().filter(id__in=menu_item_ids)
+        menu_items = self.menu_item_service.get_base_query().filter(id__in=menu_item_ids)
 
         for menu_item in menu_items:
             item = self.cart[str(menu_item.id)].copy()
@@ -34,6 +35,13 @@ class CartService(CustomRequestUtil):
                 item['total_price'] = int(menu_item.price * item['quantity'])
 
             yield item
+
+    def fetch_cart(self):
+        cart = self.request.session.get("cart")
+        if not cart:
+            return None, ErrorMessages.no_items_in_cart
+
+        return cart
 
 
     def __len__(self):
@@ -84,7 +92,7 @@ class CartService(CustomRequestUtil):
     def get_total_cost(self):
         total = 0
         menu_item_ids = self.cart.keys()
-        menu_items = self.menu_item_service.__get_base_query().filter(id__in=menu_item_ids)
+        menu_items = self.menu_item_service.get_base_query().filter(id__in=menu_item_ids)
 
         for value in self.cart.values():
             key = int(value['id'])

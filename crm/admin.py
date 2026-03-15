@@ -13,7 +13,7 @@ class CategoryAdmin(BaseAdmin):
 
 @admin.register(MenuItem)
 class MenuItemAdmin(BaseAdmin):
-    list_display = ["id", "name", "base_price", "is_available"]
+    list_display = ["id", "name", "price", "is_available"]
     search_fields = ["name", "description", "slug"]
     autocomplete_fields = ("category",)
 
