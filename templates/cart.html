@@ -25,24 +25,52 @@
                             {% for item in cart %}
                             <tr>
                                 <td class="product-thumbnail">
-                                    <a href="shop-details.html"><img class="rounded-1" src="{{ item.menu_item.image.url }}" alt="image">
+                                    <a href="#"><img class="rounded-1" src="{{ item.menu_item.image.url }}" alt="image">
                                     </a>
                                 </td>
                                 <td class="product-name">
-                                    <a href="shop-details.html">{{ item.menu_item.name }}</a>
+                                    <a href="#">{{ item.menu_item.name }}</a>
                                 </td>
                                 <td class="product-price">
-                                    <span class="amount">$259.00</span>
+
+                                    {% if item.product.percentage_discount %}
+                                    <span class="amount">
+                                                    {{ item.menu_item.discounted_price | naira }}
+                                    </span>
+                                    <del>{{ item.menu_item.price | naira }}</del>
+                                    {% else %}
+                                    <span class="amount">{{ item.menu_item.price | naira }}</span>
+                                    {% endif %}
                                 </td>
                                 <td class="product-quantity">
-                                    <div class="quantity-selector m-0"><button class="decrement">-</button><input type="number" id="quantity" value="1" min="1"><button class="increment">+</button>
+                                    <div class="quantity-selector m-0">
+                                        <button class="decrement qty-left-minus qtyminus"
+                                                data-type="minus" data-field=""
+                                                data-index="{{ item.menu_item.id }}"
+                                                data-url="{% url 'update_cart' %}">-</button>
+
+                                        <input type="text" class="qty-input" id="select{{ item.menu_item.id }}" value="{{ item.quantity }}" min="1">
+
+                                        <button class="increment qty-right-plus qtyplus"
+                                                data-type="plus" data-field=""
+                                                data-index="{{ item.product.id }}"
+                                                data-url="{% url 'update_cart' %}">+</button>
                                     </div>
                                 </td>
                                 <td class="product-subtotal">
-                                    <span class="amount">$459.00</span>
+                                    <span class="amount">{{item.total_price | naira}}</span>
                                 </td>
                                 <td class="product-remove">
-                                    <button class="remove"><i class="ti ti-trash"></i></button>
+
+
+                                    <button
+                                            data-remove-url="{% url 'remove_from_cart' %}"
+                                            id="cart-btn-{{item.menu_item.id}}"
+                                            class="remove btn close_button in-cart addcart-button"
+                                            data-product-id="{{item.menu_item.id}}"
+                                    >
+                                        <i class="ti ti-trash"></i>
+                                    </button>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -51,27 +79,27 @@
                     </table>
                 </div>
 
-                <div class="cart-buttons w-100 mt-5">
-                    <div class="row align-items-center g-4">
-                        <div class="col-lg-8 col-md-9">
-                            <div class="row g-4">
-                                <div class="col-lg-8 col-md-7">
-                                    <div class="continue-shopping-box"><input type="text" class="form-control" placeholder="Coupon Code">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-5">
-                                    <div class="continue-shopping-box"><button type="submit" class="default-btn">Apply Coupon</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-3">
-                            <div class="update-cart-box text-lg-end">
-                                <a href="checkout.html" class="default-btn">Update Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="cart-buttons w-100 mt-5">-->
+<!--                    <div class="row align-items-center g-4">-->
+<!--                        <div class="col-lg-8 col-md-9">-->
+<!--                            <div class="row g-4">-->
+<!--                                <div class="col-lg-8 col-md-7">-->
+<!--                                    <div class="continue-shopping-box"><input type="text" class="form-control" placeholder="Coupon Code">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-lg-4 col-md-5">-->
+<!--                                    <div class="continue-shopping-box"><button type="submit" class="default-btn">Apply Coupon</button>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-4 col-md-3">-->
+<!--                            <div class="update-cart-box text-lg-end">-->
+<!--                                <a href="checkout.html" class="default-btn">Update Cart</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 {% else %}
                     <h5>There are no items in your cart</h5>
@@ -89,7 +117,7 @@
                             Cart Totals</h3>
                         <ul class="ps-0 pe-0 mb-0 list-unstyled">
                             <li>
-                                Cart Subtotal <span class="float-end">$170.00</span>
+                                Cart Subtotal <span class="float-end">{{cart.get_total_cost | naira}}</span>
                             </li>
                             <li>
                                 Shipping <span class="float-end">$59.00</span>
