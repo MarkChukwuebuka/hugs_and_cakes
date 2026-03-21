@@ -96,5 +96,6 @@ class ErrorMessages(TextChoices):
     menu_item_with_that_name_already_exists = "Menu Item with that name already exists."
 
     no_items_in_cart = "No items in cart."
+    invalid_qr_code = "Invalid QR Code"
 
 

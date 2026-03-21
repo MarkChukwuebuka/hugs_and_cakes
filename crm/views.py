@@ -4,6 +4,8 @@ from crm.models import Table
 from crm.services.category_service import CategoryService
 from crm.services.menu_item_service import MenuItemService
 from crm.services.table_service import TableService
+from order.constants import OrderType
+from utils.constants.messages import ErrorMessages
 from utils.util import CustomRequestUtil
 
 
@@ -69,18 +71,19 @@ class MenuView(View, CustomRequestUtil):
         table_service = TableService(request)
 
         category_slug = request.GET.get("category")
-        table_token = request.GET.get("table")
+        table_token = request.GET.get("token")
 
         if table_token:
-            table = Table.active_available_objects.filter(qr_token=table_token, is_active=True)
-            request.session["table_id"] = table.id
-        else:
-            table_id = request.session.get("table_id")
-            table = Table.active_available_objects.filter(id=table_id).first()
+            table = Table.active_available_objects.filter(qr_token=table_token, is_active=True).first()
+            if table:
+                request.session["table_id"] = table.id
+                request.session["order_type"] = OrderType.dine_in
+            else:
+                error = ErrorMessages.invalid_qr_code
 
         self.extra_context_data["categories"] = category_service.fetch_list()
         self.extra_context_data["selected_category"] = category_service.fetch_single_by_code(category_slug)
 
         return self.process_request(
-            request, target_function=menu_item_service.fetch_list, category_slug=category_slug, paginate=True
+            request, target_function=menu_item_service.fetch_list,errors=error, category_slug=category_slug, paginate=True
         )
