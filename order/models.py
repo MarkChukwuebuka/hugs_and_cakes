@@ -15,16 +15,17 @@ class Order(BaseModel):
         blank=True,
         related_name="orders"
     )
-    delivery_address = models.TextField(blank=True)
+    delivery_address = models.ForeignKey("DeliveryAddress", on_delete=models.SET_NULL, null=True, blank=True)
     status = models.CharField(max_length=50, choices=OrderStatus.choices, default=OrderStatus.pending)
     total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    notes = models.TextField(blank=True)
 
-    def __str__(self):
-        return f"{self.table.number} {self.created_by.email} - order"
+def __str__(self):
+        return f"{self.table.number}/{self.created_by.email} - order"
 
 
 
-class OrderItem(models.Model):
+class OrderItem(BaseModel):
     order = models.ForeignKey(
         "Order",
         on_delete=models.CASCADE,
@@ -36,8 +37,27 @@ class OrderItem(models.Model):
         null=True
     )
     quantity = models.PositiveIntegerField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    notes = models.TextField(blank=True)  # "No pepper", "Extra spicy"
+    original_price = models.DecimalField(max_digits=10, decimal_places=2)
+    total_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def __str__(self):
         return f"{self.order_id} - item"
+
+
+class DeliveryAddress(BaseModel):
+    first_name = models.CharField(max_length=255, null=True, blank=True)
+    last_name = models.CharField(max_length=255, null=True, blank=True)
+    address = models.CharField(max_length=255, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    area = models.ForeignKey("Area", on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.email} - delivery address"
+
+
+class Area(models.Model):
+    name = models.CharField(max_length=100)
+    delivery_fee = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return self.name

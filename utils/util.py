@@ -1,5 +1,6 @@
 import logging
 import random
+import string
 import traceback
 from typing import Union, TypeVar
 from datetime import datetime
@@ -323,3 +324,26 @@ def generate_random_username():
     username = f"{adjective.capitalize()}{noun.capitalize()}{number}"
 
     return username
+
+
+def generate_order_ref(prefix="ORD"):
+    """
+    Generate a unique reference number for an order.
+
+    Args:
+        prefix (str): A prefix for the reference number (default is "ORD").
+
+    Returns:
+        str: A unique order reference number.
+    """
+    # Current timestamp in the format YYYYMMDDHHMMSS
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+
+    # Random alphanumeric string of 6 characters
+    random_str = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
+
+    # Combine prefix, timestamp, and random string
+    ref_number = f"{prefix}-{timestamp}-{random_str}"
+
+    return ref_number
+

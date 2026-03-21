@@ -44,17 +44,17 @@ class ContactUsView(View, CustomRequestUtil):
 
 
 
-class CategoryView(View, CustomRequestUtil):
-    template_name = 'category.html'
-    template_on_error = 'category.html'
-    context_object_name = "categories"
-    extra_context_data = {
-        "title": "Categories",
-    }
+    class CategoryView(View, CustomRequestUtil):
+        template_name = 'category.html'
+        template_on_error = 'category.html'
+        context_object_name = "categories"
+        extra_context_data = {
+            "title": "Categories",
+        }
 
-    def get(self, request, *args, **kwargs):
-        category_service = CategoryService(request)
-        return self.process_request(request, target_function=category_service.fetch_list)
+        def get(self, request, *args, **kwargs):
+            category_service = CategoryService(request)
+            return self.process_request(request, target_function=category_service.fetch_list)
 
 
 class MenuView(View, CustomRequestUtil):
@@ -73,6 +73,7 @@ class MenuView(View, CustomRequestUtil):
         category_slug = request.GET.get("category")
         table_token = request.GET.get("token")
 
+        error = None
         if table_token:
             table = Table.active_available_objects.filter(qr_token=table_token, is_active=True).first()
             if table:
@@ -85,5 +86,5 @@ class MenuView(View, CustomRequestUtil):
         self.extra_context_data["selected_category"] = category_service.fetch_single_by_code(category_slug)
 
         return self.process_request(
-            request, target_function=menu_item_service.fetch_list,errors=error, category_slug=category_slug, paginate=True
+            request, target_function=menu_item_service.fetch_list, errors=error, category_slug=category_slug, paginate=True
         )

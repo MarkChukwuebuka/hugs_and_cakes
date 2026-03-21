@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.utils import timezone
 
 
 class AvailableManager(models.Manager):
@@ -39,7 +40,7 @@ class ActiveAvailableManager(models.Manager):
 
 class BaseModel(models.Model):
     is_active = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
     created_by = models.ForeignKey("account.User", on_delete=models.SET_NULL, null=True, blank=True, related_name="+")
     updated_at = models.DateTimeField(auto_now=True)
     updated_by = models.ForeignKey("account.User", null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
