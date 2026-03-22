@@ -73,6 +73,8 @@ class ResponseMessages(TextChoices):
     item_updated_cart = "Item updated successfully."
     item_deleted_from_cart = "Item deleted successfully."
 
+    # orders
+    order_placed_successfully = "Your Order has been submitted."
 
 
 class ErrorMessages(TextChoices):

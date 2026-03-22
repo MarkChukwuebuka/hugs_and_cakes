@@ -64,8 +64,8 @@ def remove_from_cart(request):
 
         res, _ = cart_service.remove(menu_item_id)
 
-        cart = request.session.get("cart")
-        cart_count = len(cart) if cart else 0
+        get_cart = request.session.get("cart")
+        cart_count = len(get_cart) if get_cart else 0
 
         return JsonResponse({
             "success": True,
@@ -74,6 +74,8 @@ def remove_from_cart(request):
         })
 
     return None
+
+
 
 def cart(request):
 
@@ -85,13 +87,3 @@ def cart(request):
         "title": "Cart"
     }
     return render(request, 'cart.html', context)
-
-# class CartView(View, CustomRequestUtil):
-#     template_name = 'cart.html'
-#     template_on_error = 'cart.html'
-#
-#     def get(self, request, *args, **kwargs):
-#         # self.context_object_name = "cart"
-#         cart_service = CartService(request)
-#         return self.process_request(request, target_function=cart_service.fetch_cart)
-#

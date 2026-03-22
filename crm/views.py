@@ -44,17 +44,17 @@ class ContactUsView(View, CustomRequestUtil):
 
 
 
-    class CategoryView(View, CustomRequestUtil):
-        template_name = 'category.html'
-        template_on_error = 'category.html'
-        context_object_name = "categories"
-        extra_context_data = {
-            "title": "Categories",
-        }
+class CategoryView(View, CustomRequestUtil):
+    template_name = 'category.html'
+    template_on_error = 'category.html'
+    context_object_name = "categories"
+    extra_context_data = {
+        "title": "Categories",
+    }
 
-        def get(self, request, *args, **kwargs):
-            category_service = CategoryService(request)
-            return self.process_request(request, target_function=category_service.fetch_list)
+    def get(self, request, *args, **kwargs):
+        category_service = CategoryService(request)
+        return self.process_request(request, target_function=category_service.fetch_list)
 
 
 class MenuView(View, CustomRequestUtil):

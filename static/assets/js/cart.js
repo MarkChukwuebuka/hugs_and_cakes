@@ -46,11 +46,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         this.innerHTML = `Remove from Cart`;
                         this.classList.add("in-cart");
                     }
+
                     if (data.success) {
                         if (isAdded) {
                             this.innerHTML = `Add <span class="add-icon bg-light-gray"><i class="fa-solid fa-plus"></i></span>`;
                             this.classList.remove("in-cart");
                             showToast(data.message, "error");
+
                         } else {
                             this.innerHTML = `Remove from Cart`;
                             this.classList.add("in-cart");
@@ -61,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (data.cart_count !== undefined) {
                             updateCartCounter(data.cart_count);
                         }
+                        location.reload();
 
                     } else {
                         showToast(data.message, "error");

@@ -21,5 +21,5 @@ class MenuItemAdmin(BaseAdmin):
 
 @admin.register(Table)
 class TableAdmin(BaseAdmin):
-    list_display = ["number", "capacity"]
+    list_display = ["number", "capacity", "qr_token"]
     search_fields = ["number"]

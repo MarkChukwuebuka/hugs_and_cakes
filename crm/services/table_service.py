@@ -48,7 +48,7 @@ class TableService(CustomRequestUtil):
 
 def generate_qr_png(table) -> bytes:
     """Returns PNG bytes for a table's QR code."""
-    url = f"{settings.FRONTEND_BASE_URL}/menu?token={table.qr_token}"
+    url = f"{settings.FRONTEND_BASE_URL}/menu/?token={table.qr_token}"
 
     img = qrcode.make(url, box_size=10, border=4)
     buffer = BytesIO()

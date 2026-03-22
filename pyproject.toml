@@ -16,5 +16,6 @@ dependencies = [
     "password-validator>=1.0",
     "phonenumbers>=9.0.23",
     "python-dotenv>=1.2.1",
+    "qrcode[pil]>=8.2",
     "whitenoise>=6.11.0",
 ]
