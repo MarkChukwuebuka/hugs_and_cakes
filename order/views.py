@@ -1,15 +1,10 @@
-from django.shortcuts import render
+
 from django.views import View
 
-from cart.services import CartService
-from crm.models import Table, MenuItem
-from order.constants import OrderType, OrderStatus
-from order.models import Area, DeliveryAddress, Order, OrderItem
+from order.models import Area
 from order.services.order_service import OrderService
-from utils.util import CustomRequestUtil, generate_order_ref
+from utils.util import CustomRequestUtil
 
-
-# Create your views here.
 
 class CheckoutView(View, CustomRequestUtil):
     template_name = 'checkout.html'
@@ -22,6 +17,7 @@ class CheckoutView(View, CustomRequestUtil):
     def get(self, request, *args, **kwargs):
         self.extra_context_data["order_type"] = request.session.get("order_type")
         self.extra_context_data["areas"] = Area.objects.all()
+        print(request.session["order_type"])
         return self.process_request(request)
 
     def post(self, request, *args, **kwargs):
@@ -36,7 +32,7 @@ class CheckoutView(View, CustomRequestUtil):
             notes = request.POST.get("order_notes")
         )
         order_service = OrderService(request)
-        return self.process_request(request, target_function=order_service.create_single, payload=payload)
+        return self.process_request(request, target_view="home", target_function=order_service.create_single, payload=payload)
 
 
 

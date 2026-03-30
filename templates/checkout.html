@@ -15,7 +15,7 @@
         <form method="POST" class="row g-4">
             {% csrf_token %}
 
-            {% if order_type != "dine in" %}
+            {% if order_type != "Dine In" %}
             <div class="col-lg-6 col-md-12" data-cues="slideInLeft" data-duration="800">
                 <div class="checkout-form br-10">
                     <h3 class="fs-24 fw-bold lh-1 mb-4">Delivery Details</h3>
@@ -92,7 +92,7 @@
                         </li>
                         {% endfor %}
 
-                        {% if order_type != "dine in" %}
+                        {% if order_type != "Dine In" %}
 
                         <!-- ✅ Shipping will appear here -->
                         <li class="d-flex justify-content-between" id="shipping-row" style="display:none;">
@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="payment-method bg-efedea p-3 br-10">
-                    {% if order_type != "dine in" %}
+                    {% if order_type != "Dine In" %}
                     <p class="mb-3">Payment will be made upon delivery</p>
                     {% endif %}
 

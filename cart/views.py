@@ -82,8 +82,9 @@ def cart(request):
     if not request.session.get("cart"):
         messages.error(request, "There are no items in your cart")
         return redirect("home")
-
+    # print(request.session["order_type"])
     context = {
-        "title": "Cart"
+        "title": "Cart",
+        "order_type": request.session.get("order_type")
     }
     return render(request, 'cart.html', context)

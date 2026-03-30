@@ -20,7 +20,7 @@ class OrderService(CustomRequestUtil):
         order_type = self.request.session.get("order_type") or OrderType.delivery
         notes = payload.pop("notes", None)
         try:
-            with transaction.atomic:
+            with transaction.atomic():
                 if order_type == OrderType.delivery:
                     delivery_address = DeliveryAddress.objects.create(
                         **payload
@@ -76,6 +76,10 @@ class OrderService(CustomRequestUtil):
             AppLogger.report(e, error_position="create_order")
             return None, ErrorMessages.something_went_wrong
 
-        return ResponseMessages.order_plcaed_successfully, None
+        self.cart.clear()
+
+        self.request.session.pop("order_type", None)
+        self.request.session.pop("table_id", None)
+        return ResponseMessages.order_placed_successfully, None
 
 

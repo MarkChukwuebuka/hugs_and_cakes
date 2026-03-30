@@ -119,15 +119,17 @@
                             <li>
                                 Cart Subtotal <span class="float-end">{{cart.get_total_cost | naira}}</span>
                             </li>
+                            {% if order_type != "Dine In" %}
                             <li>
-                                Shipping <span class="float-end">$59.00</span>
+                                Delivery Fee <span class="float-end">Will be calculated at checkout</span>
                             </li>
+                            {% endif %}
                             <li>
-                                Total <span class="float-end">$255.00</span>
+                                Total <span class="float-end">{{cart.get_total_cost | naira}}</span>
                             </li>
                         </ul>
                         <div class="text-center">
-                            <button type="submit" class="default-btn mt-4">Checkout</button>
+                            <a href="{% url 'checkout' %}" class="default-btn mt-4">Checkout</a>
                         </div>
                     </div>
                 </div>

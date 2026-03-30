@@ -18,10 +18,10 @@ class Order(BaseModel):
     delivery_address = models.ForeignKey("DeliveryAddress", on_delete=models.SET_NULL, null=True, blank=True)
     status = models.CharField(max_length=50, choices=OrderStatus.choices, default=OrderStatus.pending)
     total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
-    notes = models.TextField(blank=True)
+    notes = models.TextField(blank=True, null=True)
 
-def __str__(self):
-        return f"{self.table.number}/{self.created_by.email} - order"
+    def __str__(self):
+        return f"{self.order_id} - order"
 
 
 
@@ -41,7 +41,7 @@ class OrderItem(BaseModel):
     total_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def __str__(self):
-        return f"{self.order_id} - item"
+        return f"{self.order.order_id} - {self.menu_item}"
 
 
 class DeliveryAddress(BaseModel):
