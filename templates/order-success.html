@@ -1,0 +1,40 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block main %}
+
+<div class="order-success-area ptb-120 text-center">
+  <div class="container">
+    <div class="success-box mx-auto p-5 br-10 bg-f3f3f3" style="max-width: 600px;">
+
+      <div class="success-icon mb-4">
+        <i class="ti ti-check" style="font-size: 60px; color: green;"></i>
+      </div>
+
+      <h2 class="mb-3">Order Placed Successfully 🎉</h2>
+
+      <p class="mb-4">
+        Your order has been received and is being processed.
+      </p>
+
+      {% if order_id %}
+      <p class="fw-semibold">
+        Order ID: <span class="text-primary">{{ order.order_id }}</span>
+      </p>
+      {% endif %}
+
+<!--      <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">-->
+<!--        <a href="{% url 'home' %}" class="default-btn">-->
+<!--          Continue Shopping-->
+<!--        </a>-->
+
+<!--        <a href="{% url 'orders' %}" class="default-btn bg-dark text-white">-->
+<!--          View Orders-->
+<!--        </a>-->
+<!--      </div>-->
+
+    </div>
+  </div>
+</div>
+
+{% endblock main %}

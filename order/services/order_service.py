@@ -22,7 +22,7 @@ class OrderService(CustomRequestUtil):
         try:
             with transaction.atomic():
                 if order_type == OrderType.delivery:
-                    delivery_address = DeliveryAddress.objects.create(
+                    delivery_address = DeliveryAddress.active_available_objects.create(
                         **payload
                     )
 
@@ -81,5 +81,18 @@ class OrderService(CustomRequestUtil):
         self.request.session.pop("order_type", None)
         self.request.session.pop("table_id", None)
         return ResponseMessages.order_placed_successfully, None
+
+
+    def fetch_single(self, order_id):
+        order = self._get_base_queryset().filter(id=order_id).first()
+        if not order:
+            return None, ResponseMessages.order_not_found
+
+        return order, None
+
+
+
+    def _get_base_queryset(self):
+        return Order.active_available_objects.all()
 
 

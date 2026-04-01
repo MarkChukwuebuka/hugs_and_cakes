@@ -75,6 +75,7 @@ class ResponseMessages(TextChoices):
 
     # orders
     order_placed_successfully = "Your Order has been submitted."
+    order_not_found = "Order not found."
 
 
 class ErrorMessages(TextChoices):

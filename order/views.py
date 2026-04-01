@@ -17,7 +17,7 @@ class CheckoutView(View, CustomRequestUtil):
     def get(self, request, *args, **kwargs):
         self.extra_context_data["order_type"] = request.session.get("order_type")
         self.extra_context_data["areas"] = Area.objects.all()
-        print(request.session["order_type"])
+
         return self.process_request(request)
 
     def post(self, request, *args, **kwargs):
@@ -37,4 +37,19 @@ class CheckoutView(View, CustomRequestUtil):
 
 
 
+
+class OrderSuccessView(View, CustomRequestUtil):
+    extra_context_data = {
+        "title": "Order Success"
+    }
+
+    def get(self, request, *args, **kwargs):
+        self.template_name = "order-success.html"
+        self.context_object_name = 'order'
+
+        order_service = OrderService(self.request)
+
+        return self.process_request(
+            request, target_function=order_service.fetch_single, order_id=kwargs.get("order_id")
+        )
 

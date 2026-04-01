@@ -47,6 +47,7 @@ class OrderItem(BaseModel):
 class DeliveryAddress(BaseModel):
     first_name = models.CharField(max_length=255, null=True, blank=True)
     last_name = models.CharField(max_length=255, null=True, blank=True)
+    phone_number = models.CharField(max_length=255, null=True, blank=True)
     address = models.CharField(max_length=255, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     area = models.ForeignKey("Area", on_delete=models.SET_NULL, null=True, blank=True)
