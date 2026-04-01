@@ -51,7 +51,7 @@
 <nav class="navbar navbar-area bg-trasparent navbar-expand-lg" id="navbar">
     <div class="container-fluid side-padding position-relative">
         <a class="navbar-brand logo-brand p-0" href="{% url 'home' %}">
-            <img class="main-logo" src="{% static 'assets/images/main-logo.png' %}" alt="image">
+            <img class="main-logo" src="{% static 'assets/images/black-logo.jpeg' %}" alt="image">
         </a>
         <a class="navbar-toggler" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button"
            aria-controls="offcanvasRight">
@@ -224,12 +224,15 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-widget">
                     <div class="logo mb-4">
-                        <img src="{% static 'assets/images/footer.png' %}" alt="image">
+                        <img src="{% static 'assets/images/logo.png' %}" alt="image" width="150">
                     </div>
-                    <p class="mb-4">Meanwhile, food delivery platforms revolutionized the way people enjoy meals by bringing freshly prepared</p>
+                    <p class="mb-4">
+                        Event Catering, Cakes, Sharwarma, Ice Cream, Small Chops
+                    </p>
                     <ul class="social ps-0 pe-0 mb-0 list-unstyled d-flex align-items-center gap-2">
-                        <li><a href="{{tiktok_url}}" target="_blank"><i class="ti ti-brand-tiktok"></i></a></li>
-                        <li><a href="{{instagram_url}}" target="_blank"><i class="ti ti-brand-instagram"></i></a></li>
+                        <li><a href="{{app_config.tiktok_url}}" target="_blank"><i class="ti ti-brand-tiktok"></i></a></li>
+                        <li><a href="{{app_config.instagram_url}}" target="_blank"><i class="ti ti-brand-instagram"></i></a></li>
+                        <li><a href="{{app_config.whatsapp_url}}" target="_blank"><i class="ti ti-brand-whatsapp"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -283,7 +286,7 @@
 <div class="copy-right-area bg-footer">
     <div class="container">
         <div class="content">
-            <p class="fs-20 mb-0 text-center">&copy; {% now 'Y' %} {{app_name}}. All rights reserved.</p>
+            <p class="fs-20 mb-0 text-center">&copy; {% now 'Y' %} {{app_config.app_name}}. All rights reserved.</p>
         </div>
     </div>
 </div>

@@ -80,7 +80,7 @@ class OrderService(CustomRequestUtil):
 
         self.request.session.pop("order_type", None)
         self.request.session.pop("table_id", None)
-        return ResponseMessages.order_placed_successfully, None
+        return order, None
 
 
     def fetch_single(self, order_id):

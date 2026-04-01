@@ -32,7 +32,8 @@ class CheckoutView(View, CustomRequestUtil):
             notes = request.POST.get("order_notes")
         )
         order_service = OrderService(request)
-        return self.process_request(request, target_view="home", target_function=order_service.create_single, payload=payload)
+
+        return self.process_request(request, target_view="order_success", target_function=order_service.create_single, payload=payload)
 
 
 

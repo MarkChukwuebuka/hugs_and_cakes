@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.views import View
 
 from crm.models import Table
@@ -23,7 +24,7 @@ class HomeView(View, CustomRequestUtil):
 
 
 class AboutView(View, CustomRequestUtil):
-    template_name = 'about.html'
+    template_name = 'about-us.html'
     extra_context_data = {
         "title": "About Us",
     }
@@ -88,3 +89,14 @@ class MenuView(View, CustomRequestUtil):
         return self.process_request(
             request, target_function=menu_item_service.fetch_list, errors=error, category_slug=category_slug, paginate=True
         )
+
+
+
+
+def page_not_found(request, exception):
+    return render(request, 'error-404.html', {'title':'Page Not Found'}, status=404)
+
+def server_error(request):
+    return render(request, 'error-500.html', {'title':'Server Error'}, status=404)
+
+
