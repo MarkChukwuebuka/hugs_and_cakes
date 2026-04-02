@@ -29,6 +29,37 @@
 
 </head>
 <body>
+
+
+<style>
+    /* Cart Icon */
+    .cart-icon {
+        font-size: 22px;
+        color: white;
+        position: relative;
+        display: inline-block;
+    }
+
+    .cart-icon:hover {
+        color: #ff6b00;
+    }
+
+    /* Badge */
+    .cart-badge {
+        position: absolute;
+        top: -6px;
+        right: -10px;
+        background: red;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 3px 6px;
+        border-radius: 50%;
+        line-height: 1;
+    }
+</style>
+
+
 <!-- Scroll Smoother -->
 <div class="has-smooth" id="has_smooth"></div>
 <!-- Start Top Header Area -->
@@ -49,131 +80,126 @@
 
 <!-- Start Navbar Area -->
 <nav class="navbar navbar-area bg-trasparent navbar-expand-lg" id="navbar">
-    <div class="container-fluid side-padding position-relative">
+    <div class="container-fluid side-padding position-relative d-flex align-items-center justify-content-between">
+
+        <!-- Logo -->
         <a class="navbar-brand logo-brand p-0" href="{% url 'home' %}">
-            <img class="main-logo" src="{% static 'assets/images/black-logo.jpeg' %}" alt="image">
-        </a>
-        <a class="navbar-toggler" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button"
-           aria-controls="offcanvasRight">
-                    <span class="burger-menu">
-                        <span class="top-bar"></span>
-                        <span class="middle-bar"></span>
-                        <span class="bottom-bar"></span>
-                    </span>
+            <img class="main-logo" src="{% static 'assets/images/black-logo.jpeg' %}" alt="logo">
         </a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- RIGHT SIDE (Mobile: Cart + Hamburger) -->
+        <div class="d-flex align-items-center gap-3">
+
+            <!-- Cart Icon (MOBILE ONLY) -->
+            <a href="{% url 'cart' %}" class="cart-icon position-relative d-lg-none">
+                <i class="ti ti-shopping-cart"></i>
+
+                {% if cart|length > 0 %}
+                <span class="cart-badge" id="cart-counter">
+                    {{ cart|length }}
+                </span>
+                {% endif %}
+            </a>
+
+            <!-- Hamburger -->
+            <a class="navbar-toggler" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button">
+                <span class="burger-menu">
+                    <span class="top-bar"></span>
+                    <span class="middle-bar"></span>
+                    <span class="bottom-bar"></span>
+                </span>
+            </a>
+
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="{% url 'home' %}">
-                        Home
-                    </a>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="{% url 'menu' %}">
-                        Menu
-                    </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'menu' %}">Menu</a>
                 </li>
 
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="{% url 'about' %}">
-                        About
-                    </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="{% url 'cart' %}">
-                        Cart
-                    </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
                 </li>
 
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="{% url 'contact' %}">
-                        Contact Us
-                    </a>
-                </li>
             </ul>
         </div>
 
-        <div class="others-options">
-            <ul class="d-flex align-items-center shrink-0 ps-0 pe-0 mb-0 list-unstyled">
+        <!-- Desktop Right Side -->
+        <div class="others-options d-none d-lg-block">
+            <ul class="d-flex align-items-center gap-3 mb-0 list-unstyled">
+
+                <!-- Search -->
                 <li>
-                    <button class="search-btn fw-medium p-0 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
-                        <i class="ti ti-search search1"></i>
+                    <button class="search-btn p-0 border-0 bg-transparent"
+                            type="button"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasTop">
+                        <i class="ti ti-search"></i>
                     </button>
                 </li>
-<!--                <li>-->
-<!--                    <a href="reservation.html" class="default-btn">Book A Table</a>-->
-<!--                </li>-->
+
+                <!-- Cart Icon (DESKTOP ONLY) -->
+                <li class="position-relative">
+                    <a href="{% url 'cart' %}" class="cart-icon">
+                        <i class="ti ti-shopping-cart"></i>
+
+                        {% if cart|length > 0 %}
+                        <span class="cart-badge" id="cart-counter">
+                            {{ cart|length }}
+                        </span>
+                        {% endif %}
+                    </a>
+                </li>
+
             </ul>
         </div>
+
     </div>
 </nav>
 <!-- End Navbar Area -->
 
-<!-- Start Mobile Menu -->
 <div class="side-modal mobile-navbar offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
+
     <div class="offcanvas-header">
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
+
     <div class="offcanvas-body">
-        <ul class="mobile-menu">
-            <li class="mobile-menu-list dropdown active">
-                <a class="nav-link icon active" href="{% url 'home' %}">
-                    Home
-                </a>
+
+        <ul class="mobile-menu list-unstyled ps-0">
+
+            <li>
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
             </li>
 
-            <li class="mobile-menu-list dropdown active">
-                <a class="nav-link icon active" href="{% url 'menu' %}">
-                    Menu
-                </a>
+            <li>
+                <a href="{% url 'menu' %}" class="nav-link">Menu</a>
             </li>
 
-
-
-            <li class="mobile-menu-list dropdown active">
-                <a class="nav-link icon active" href="{% url 'about' %}">
-                    About Us
-                </a>
+            <li>
+                <a href="{% url 'about' %}" class="nav-link">About</a>
             </li>
 
-            <li class="mobile-menu-list dropdown active">
-                <a class="nav-link icon active" href="{% url 'contact' %}">
-                    Cart
-                </a>
+            <li>
+                <a href="{% url 'contact' %}" class="nav-link">Contact</a>
             </li>
 
-            <li class="mobile-menu-list dropdown active">
-                <a class="nav-link icon active" href="{% url 'contact' %}">
-                    Contact Us
-                </a>
-            </li>
         </ul>
 
-        <div class="others-options">
-            <ul class="d-lg-flex align-items-center shrink-0 ps-0 pe-0 mb-0 list-unstyled">
-                <li class="mb-2">
-                    <button class="search-btn fw-medium p-0 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
-                        <i class="ti ti-search search1"></i>
-                    </button>
-                </li>
-                <li class="d-flex align-items-center gap-2 mb-2">
-                    <i class="ti ti-phone search1"></i>
-                    <a href="tel:1234567890" class="number">{{ app_phone_number }}</a>
-                </li>
-<!--                <li>-->
-<!--                    <a href="reservation.html" class="default-btn">Book A Table</a>-->
-<!--                </li>-->
-            </ul>
-        </div>
     </div>
 </div>
-<!-- End Mobile Menu -->
+
 
 <!-- Search Modal -->
 
