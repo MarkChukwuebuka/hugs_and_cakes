@@ -1,17 +1,14 @@
 [Unit]
-Description=hugs_and_cakes gunicorn daemon
-Requires=hugs_and_cakes.socket
+Description=gunicorn daemon
 After=network.target
 
 [Service]
-User=hugs_and_cakes
+User=root
 Group=www-data
 WorkingDirectory=/var/www/hugs_and_cakes
-EnvironmentFile=/var/www/hugs_and_cakes/.env
 ExecStart=/var/www/hugs_and_cakes/.venv/bin/gunicorn \
-          --access-logfile - \
-          --workers 2 \
-          --bind unix:/run/hugs_and_cakes.sock \
+          --workers 3 \
+          --bind unix:/var/www/hugs_and_cakes/gunicorn.sock \
           core.wsgi:application
 
 [Install]
