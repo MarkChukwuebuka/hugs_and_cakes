@@ -151,8 +151,6 @@ USE_TZ = True
 #
 
 
-
-
 STATIC_URL = '/static/'
 
 # Where collectstatic will dump everything
