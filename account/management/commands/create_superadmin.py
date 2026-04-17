@@ -21,6 +21,7 @@ class Command(BaseCommand):
         parser.add_argument("--phone_number", type=str, help="Phone number of admin")
         parser.add_argument("--first_admin", type=str, help="First admin username")
 
+
     def handle(self, *args, **options):
         first_admin = options["first_admin"]
 
