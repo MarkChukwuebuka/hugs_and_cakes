@@ -133,24 +133,46 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 #
-STATIC_ROOT = str(BASE_DIR / 'staticfiles')
+# STATIC_ROOT = str(BASE_DIR / 'staticfiles')
+#
+# STATIC_URL = '/static/'
+#
+# MEDIA_URL = '/media/'
+#
+# if DEBUG:
+#     STATICFILES_DIRS = [str(BASE_DIR / 'static'), ]
+# else:
+#     STATIC_ROOT = str(BASE_DIR / 'static')
+#
+# MEDIA_ROOT = str(BASE_DIR / 'media')
+#
+#
+#
+
 
 STATIC_URL = '/static/'
 
+# Where collectstatic will dump everything
+STATIC_ROOT = str(BASE_DIR / 'staticfiles')
+
+# Where your original static files live
+STATICFILES_DIRS = [
+    str(BASE_DIR / 'static'),
+]
+
 MEDIA_URL = '/media/'
-
-if DEBUG:
-    STATICFILES_DIRS = [str(BASE_DIR / 'static'), ]
-else:
-    STATIC_ROOT = str(BASE_DIR / 'static')
-
 MEDIA_ROOT = str(BASE_DIR / 'media')
+
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
+
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 AUTH_USER_MODEL = "account.User"
+
 
 cloudinary.config(
     cloud_name=os.getenv('CLOUD_NAME'),
