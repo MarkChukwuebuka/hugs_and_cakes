@@ -146,33 +146,11 @@ else:
 
 MEDIA_ROOT = str(BASE_DIR / 'media')
 
-
-
-
-#
-# STATIC_URL = '/static/'
-#
-# # Where collectstatic will dump everything
-# STATIC_ROOT = str(BASE_DIR / 'staticfiles')
-#
-# # Where your original static files live
-# STATICFILES_DIRS = [
-#     str(BASE_DIR / 'static'),
-# ]
-#
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = str(BASE_DIR / 'media')
-#
-
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
-
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 AUTH_USER_MODEL = "account.User"
-
 
 cloudinary.config(
     cloud_name=os.getenv('CLOUD_NAME'),
