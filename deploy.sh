@@ -12,16 +12,16 @@ git pull origin main
 
 # Install/update dependencies with uv
 echo "📦 Installing dependencies..."
-uv sync
+pip install -r requirements.txt
 
 # Collect static files
 echo "🎨 Collecting static files..."
-uv run python manage.py collectstatic --noinput
+python manage.py collectstatic --noinput
 
 # Run migrations
 echo "🗄️  Running database migrations..."
-uv run python manage.py makemigrations --noinput
-uv run python manage.py migrate --noinput
+python manage.py makemigrations --noinput
+python manage.py migrate --noinput
 
 # Restart application
 echo "🔄 Restarting application..."

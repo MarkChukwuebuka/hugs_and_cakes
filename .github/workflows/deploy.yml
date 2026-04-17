@@ -19,4 +19,5 @@ jobs:
           port: ${{ secrets.INTERSERVER_HC_VPS_PORT }}
           script: |
             cd /var/www/hugs_and_cakes
+            chmod +x deploy.sh
             ./deploy.sh
