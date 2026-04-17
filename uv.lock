@@ -45,12 +45,6 @@ wheels = [
 ]
 
 [[package]]
-name = "block-disposable-email"
-version = "2.0.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/00/32/d16726fea4af803856305cfbc46b8650993f0fe5348883063a7fca06c21d/block-disposable-email-2.0.0.tar.gz", hash = "sha256:4ecd0398d756bacd3708f350307b850ce54f28ac3cbf657bf8c9bfa5b598476a", size = 4259, upload-time = "2020-04-14T13:22:51.302Z" }
-
-[[package]]
 name = "celery"
 version = "5.6.2"
 source = { registry = "https://pypi.org/simple" }
@@ -178,18 +172,6 @@ wheels = [
 ]
 
 [[package]]
-name = "django-disposable-email-checker"
-version = "2.0.4"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "block-disposable-email" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/21/bf/82b82ef31b9d8c3ecc3edb9ede46b1ccdf916d49fd4d1b2ed735f437650a/django-disposable-email-checker-2.0.4.tar.gz", hash = "sha256:63c47f35590ab5fcf964ac00a72ebe34ff61f21e3bcbb7e1ba934e8b2c35587c", size = 15944, upload-time = "2024-10-30T15:10:42.266Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/90/6f/fbc1409fc79be2e5b29d4a73877331dbef8f3212d9cb1b9271881f486083/django_disposable_email_checker-2.0.4-py3-none-any.whl", hash = "sha256:182291fc0afd34bdf5e18a30062a4207dc44f9094a3c9f8f947c14b5700cb7d2", size = 14005, upload-time = "2024-10-30T15:10:41.022Z" },
-]
-
-[[package]]
 name = "django-qrcode"
 version = "0.3"
 source = { registry = "https://pypi.org/simple" }
@@ -252,7 +234,6 @@ dependencies = [
     { name = "cloudinary" },
     { name = "dj-database-url" },
     { name = "django" },
-    { name = "django-disposable-email-checker" },
     { name = "django-qrcode" },
     { name = "django-redis" },
     { name = "djangorestframework" },
@@ -273,7 +254,6 @@ requires-dist = [
     { name = "cloudinary", specifier = ">=1.44.1" },
     { name = "dj-database-url", specifier = ">=3.1.0" },
     { name = "django", specifier = ">=6.0.2" },
-    { name = "django-disposable-email-checker", specifier = ">=2.0.4" },
     { name = "django-qrcode", specifier = ">=0.3" },
     { name = "django-redis", specifier = ">=6.0.0" },
     { name = "djangorestframework", specifier = ">=3.16.1" },
