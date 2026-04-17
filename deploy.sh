@@ -26,7 +26,6 @@ python manage.py collectstatic --noinput
 
 # Run migrations
 echo "🗄️  Running database migrations..."
-python manage.py makemigrations --noinput
 python manage.py migrate --noinput
 
 # Restart application
