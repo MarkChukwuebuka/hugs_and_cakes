@@ -16,7 +16,7 @@ git pull origin main
 echo "📥 activate virtual env..."
 source $VENV_DIR/bin/activate
 
-# Install/update dependencies with uv
+# Install/update dependencies
 echo "📦 Installing dependencies..."
 pip install -r requirements.txt
 
