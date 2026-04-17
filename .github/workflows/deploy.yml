@@ -19,5 +19,7 @@ jobs:
           port: ${{ secrets.INTERSERVER_HC_VPS_PORT }}
           script: |
             cd /var/www/hugs_and_cakes
+            git fetch origin main
+            git reset --hard origin/main
             chmod +x deploy.sh
             ./deploy.sh
