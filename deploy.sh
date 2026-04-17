@@ -3,8 +3,11 @@ set -e
 
 echo "🚀 Starting deployment..."
 
+APP_DIR=/var/www/hugs_and_cakes
+VENV_DIR=$APP_DIR/venv
+
 # Navigate to project directory
-cd /var/www/hugs_and_cakes
+cd $APP_DIR
 
 # Pull latest changes
 echo "📥 Pulling latest code..."
