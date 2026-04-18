@@ -193,13 +193,13 @@ CART_SESSION_ID = 'cart'
 
 DEFAULT_CACHE_TIMEOUT = 600
 
-REDIS_HOST = os.getenv("REDIS_HOST")
+REDIS_URL = f"redis://{os.getenv('REDIS_HOST', 'redis')}:{os.getenv('REDIS_PORT', '6379')}/0"
 REDIS_PREFIX = os.getenv("REDIS_PREFIX", "dbt")
 
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": REDIS_HOST,
+        "LOCATION": REDIS_URL,
         "KEY_PREFIX": REDIS_PREFIX,
         "OPTIONS": {"CLIENT_CLASS": "django_redis.client.DefaultClient", "CONNECTION_POOL_KWARGS": {}},
         "TIMEOUT": DEFAULT_CACHE_TIMEOUT,
@@ -208,7 +208,7 @@ CACHES = {
 
 DEFAULT_PAGE_SIZE = os.getenv("DEFAULT_PAGE_SIZE", 10)
 
-BROKER_URL = REDIS_HOST
+BROKER_URL = REDIS_URL
 
 CELERY_BROKER_URL = BROKER_URL
 CELERY_RESULT_BACKEND = BROKER_URL
