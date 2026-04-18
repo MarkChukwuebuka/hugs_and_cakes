@@ -288,15 +288,15 @@
                     <h3 class="fs-25 mb-4">Contact Us</h3>
                     <div class="info-card mb-3">
                         <h4 class="mb-2 lh-1 fs-20">Address:</h4>
-                        <a href="{{app_map_url}}" target="_blank">{{app.address}}</a>
+                        <a href="{{app_config.app_map_url}}" target="_blank">{{app_config.app_address}}</a>
                     </div>
                     <div class="info-card mb-3">
                         <h4 class="mb-2 lh-1 fs-20">Phone:</h4>
-                        <a href="tel:123456789">{{ app_phone_number }}</a>
+                        <a href="tel:{{app_config.app_phone_number}}">{{ app_config.app_phone_number }}</a>
                     </div>
                     <div class="info-card">
                         <h4 class="mb-2 lh-1 fs-20">Email:</h4>
-                        <a href="mailto:{{app_address}}">{{app_address}}</a>
+                        <a href="mailto:{{app_config.app_email}}">{{app_config.app_email}}</a>
                     </div>
                 </div>
             </div>
