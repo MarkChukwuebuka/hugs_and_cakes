@@ -1,15 +1,20 @@
-[Unit]
-Description=gunicorn daemon
-After=network.target
+server {
+    listen 80;
+    server_name hugscakesnevents.com.com www.hugscakesnevents.com.com;
 
-[Service]
-User=root
-Group=www-data
-WorkingDirectory=/var/www/hugs_and_cakes
-ExecStart=/var/www/hugs_and_cakes/.venv/bin/gunicorn \
-          --workers 3 \
-          --bind unix:/var/www/hugs_and_cakes/gunicorn.sock \
-          core.wsgi:application
+    location / {
+        proxy_pass http://unix:/run/hugs_and_cakes.sock;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
 
-[Install]
-WantedBy=multi-user.target
+    location /static/ {
+        alias /var/www/hugs_and_cakes/staticfiles/;
+    }
+
+    location /media/ {
+        alias /var/www/hugs_and_cakes/media/;
+    }
+}

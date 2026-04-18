@@ -1,4 +1,4 @@
-name: Deploy to VPS
+name: Deploy Django App
 
 on:
   push:
@@ -10,16 +10,56 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to VPS
+      - name: SSH into server and deploy
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: ${{ secrets.INTERSERVER_HC_VPS_HOST }}
-          username: ${{ secrets.INTERSERVER_HC_VPS_USERNAME }}
-          key: ${{ secrets.INTERSERVER_HC_VPS_SSH_KEY }}
-          port: ${{ secrets.INTERSERVER_HC_VPS_PORT }}
+          host: ${{ secrets.SERVER_IP }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/hugs_and_cakes
-            git fetch origin main
-            git reset --hard origin/main
-            chmod +x deploy.sh
-            ./deploy.sh
+            git pull origin main
+            docker-compose down
+            docker-compose up --build -d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#name: Deploy to VPS
+#
+#on:
+#  push:
+#    branches:
+#      - main
+#
+##jobs:
+#  deploy:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Deploy to VPS
+#        uses: appleboy/ssh-action@v1.0.0
+#        with:
+#          host: ${{ secrets.INTERSERVER_HC_VPS_HOST }}
+#          username: ${{ secrets.INTERSERVER_HC_VPS_USERNAME }}
+#          key: ${{ secrets.INTERSERVER_HC_VPS_SSH_KEY }}
+#          port: ${{ secrets.INTERSERVER_HC_VPS_PORT }}
+#          script: |
+#            cd /var/www/hugs_and_cakes
+#            git fetch origin main
+#            git reset --hard origin/main
+#            chmod +x deploy.sh
+#            ./deploy.sh
