@@ -232,7 +232,7 @@
 
         <!-- CATEGORY FILTER -->
         <ul class="nav nav-pills justify-content-center mb-4">
-            <li class="nav-item">
+            <li class="nav-item mb-3">
                 <a class="nav-link {% if not selected_category %}active{% endif %}"
                    href="?">
                     All
@@ -240,7 +240,7 @@
             </li>
 
             {% for category in categories %}
-            <li class="nav-item">
+            <li class="nav-item mb-3">
                 <a class="nav-link {% if selected_category and selected_category.id == category.id %}active{% endif %}"
                    href="{% url 'menu' %}?category={{ category.code }}">
                     {{ category.name }}
