@@ -19,8 +19,8 @@ jobs:
           script: |
             cd /var/www/hugs_and_cakes
             git pull origin main
-            docker-compose down
-            docker-compose up --build -d
+            docker compose down
+            docker compose up --build -d
 
 
 
