@@ -24,7 +24,7 @@
                     {% for category in categories %}
                     <li class="nav-item">
                         <a class="nav-link {% if selected_category and selected_category.id == category.id %}active{% endif %}"
-                           href="?category={{ category.code }}">
+                           href="{% menu %}?category={{ category.code }}">
                             {{ category.name }}
                         </a>
                     </li>

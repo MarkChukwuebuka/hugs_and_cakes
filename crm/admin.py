@@ -15,6 +15,7 @@ class CategoryAdmin(BaseAdmin):
 class MenuItemAdmin(BaseAdmin):
     list_display = ["id", "name", "price", "is_available"]
     search_fields = ["name", "description", "slug"]
+    readonly_fields = ["slug"]
     autocomplete_fields = ("category",)
 
 

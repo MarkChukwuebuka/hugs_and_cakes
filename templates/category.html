@@ -20,7 +20,7 @@
                                 <img class="border-transform" src="{{ category.cover_image.url }}" alt="image">
                             </div>
                             {% endif %}
-                            <h3 class="fs-25"><a href="{% url 'menu' %}?category={{ category.name }}">{{ category.name }}</a></h3>
+                            <h3 class="fs-25"><a href="{% url 'menu' %}?category={{ category.code }}">{{ category.name }}</a></h3>
                         </div>
                     </div>
                     {% endfor %}
