@@ -35,7 +35,7 @@
 
                                     {% if item.product.percentage_discount %}
                                     <span class="amount">
-                                                    {{ item.menu_item.discounted_price | naira }}
+                                        {{ item.menu_item.discounted_price | naira }}
                                     </span>
                                     <del>{{ item.menu_item.price | naira }}</del>
                                     {% else %}
