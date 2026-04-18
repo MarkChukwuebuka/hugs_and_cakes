@@ -85,19 +85,19 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
-        'default': dj_database_url.parse(os.getenv("DATABASE_URL")
+# if DEBUG:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+# else:
+DATABASES = {
+    'default': dj_database_url.parse(os.getenv("DATABASE_URL")
 
-        )
-    }
+    )
+}
 
 
 # Password validation
@@ -192,8 +192,11 @@ CART_SESSION_ID = 'cart'
 
 
 DEFAULT_CACHE_TIMEOUT = 600
+if DEBUG:
+    REDIS_URL = os.getenv("REDIS_URL")
+else:
+    REDIS_URL = f"redis://{os.getenv('REDIS_HOST', 'redis')}:{os.getenv('REDIS_PORT', '6379')}/0"
 
-REDIS_URL = f"redis://{os.getenv('REDIS_HOST', 'redis')}:{os.getenv('REDIS_PORT', '6379')}/0"
 REDIS_PREFIX = os.getenv("REDIS_PREFIX", "dbt")
 
 CACHES = {
