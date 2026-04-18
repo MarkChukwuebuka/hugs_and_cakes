@@ -15,45 +15,47 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="s-category-image text-center">
+                            {% if category.cover_image %}
                             <div class="image1">
-                                <img class="border-transform" src="{{ category.image.url }}" alt="image">
+                                <img class="border-transform" src="{{ category.cover_image.url }}" alt="image">
                             </div>
-                            <h3 class="fs-25"><a href="category-details.html">{{ category.name }}</a></h3>
+                            {% endif %}
+                            <h3 class="fs-25"><a href="{% url 'menu' %}?category={{ category.name }}">{{ category.name }}</a></h3>
                         </div>
                     </div>
                     {% endfor %}
 
                 </div>
 
-                <div class="default-pagination mt-5">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination ps-0 pe-0 mb-0 justify-content-center">
-                            <li class="page-item">
-                                <a class="page-link border-1" href="{% url 'categories' %}" aria-label="Next">
-                                    <span aria-hidden="true">
-                                        <i class="ti ti-arrow-left"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link active border-1" href="{% url 'categories' %}">01</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link border-1" href="{% url 'categories' %}">02</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link border-1" href="{% url 'categories' %}">03</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link border-1" href="{% url 'categories' %}" aria-label="Next">
-                                    <span aria-hidden="true">
-                                        <i class="ti ti-arrow-right"></i>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+<!--                <div class="default-pagination mt-5">-->
+<!--                    <nav aria-label="Page navigation example">-->
+<!--                        <ul class="pagination ps-0 pe-0 mb-0 justify-content-center">-->
+<!--                            <li class="page-item">-->
+<!--                                <a class="page-link border-1" href="{% url 'categories' %}" aria-label="Next">-->
+<!--                                    <span aria-hidden="true">-->
+<!--                                        <i class="ti ti-arrow-left"></i>-->
+<!--                                    </span>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                            <li class="page-item">-->
+<!--                                <a class="page-link active border-1" href="{% url 'categories' %}">01</a>-->
+<!--                            </li>-->
+<!--                            <li class="page-item">-->
+<!--                                <a class="page-link border-1" href="{% url 'categories' %}">02</a>-->
+<!--                            </li>-->
+<!--                            <li class="page-item">-->
+<!--                                <a class="page-link border-1" href="{% url 'categories' %}">03</a>-->
+<!--                            </li>-->
+<!--                            <li class="page-item">-->
+<!--                                <a class="page-link border-1" href="{% url 'categories' %}" aria-label="Next">-->
+<!--                                    <span aria-hidden="true">-->
+<!--                                        <i class="ti ti-arrow-right"></i>-->
+<!--                                    </span>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </nav>-->
+<!--                </div>-->
             </div>
             <div class="shape-image">
                 <img class="shape" src="{% static 'assets/images/shape/banner.png' %}" alt="image">
