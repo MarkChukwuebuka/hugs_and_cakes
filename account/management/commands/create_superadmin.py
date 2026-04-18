@@ -24,7 +24,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         first_admin = options["first_admin"]
 
-
         if first_admin:
             username = generate_random_username()
             email = settings.ADMIN_EMAIL
