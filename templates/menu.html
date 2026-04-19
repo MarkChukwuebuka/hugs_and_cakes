@@ -49,7 +49,18 @@
                                 </h3>
                                 <span>{{ item.description|truncatewords:6 }}</span>
                                 <div class="price d-flex align-items-center justify-content-between">
+
+                                    {% if item.percentage_discount %}
+                                    <h6>
+                                        {{ item.discounted_price | naira }}
+                                        <span class="price">
+                                            <del>{{ item.price | naira }}</del>
+                                        </span>
+                                    </h6>
+
+                                    {% else %}
                                     <h6>{{ item.price | naira }}</h6>
+                                    {% endif %}
                                 </div>
                                 <div class="price d-flex align-items-center justify-content-between">
                                     <button class="default-btn addcart-button"

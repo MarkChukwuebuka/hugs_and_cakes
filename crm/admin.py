@@ -6,14 +6,14 @@ from crm.models import MenuItem, Category, Table
 
 @admin.register(Category)
 class CategoryAdmin(BaseAdmin):
-    list_display = ["id", "name"]
+    list_display = ["name"]
     search_fields = ["name", "code"]
     readonly_fields = ["code"]
 
 
 @admin.register(MenuItem)
 class MenuItemAdmin(BaseAdmin):
-    list_display = ["id", "name", "price", "is_available"]
+    list_display = ["name", "price", "category__name", "is_available"]
     search_fields = ["name", "description", "slug"]
     readonly_fields = ["slug"]
     autocomplete_fields = ("category",)

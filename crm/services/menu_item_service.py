@@ -1,6 +1,6 @@
 from django.core.cache import cache
 from django.core.paginator import Paginator
-from django.db.models import Q
+from django.db.models import Q, DecimalField, ExpressionWrapper, F, Case, When
 
 from crm.models import Category, MenuItem
 from utils.constants.messages import ResponseMessages, ErrorMessages
@@ -57,6 +57,22 @@ class MenuItemService(CustomRequestUtil):
 
     def get_base_query(self):
         qs = MenuItem.available_objects.select_related("category")
+
+        qs = qs.annotate(
+            discounted_price=Case(
+                When(
+                    percentage_discount__isnull=False,
+                    percentage_discount__gt=0,
+                    then=ExpressionWrapper(
+                        F('price') - ((F('percentage_discount') * F("price")) / 100),
+                        output_field=DecimalField(max_digits=15, decimal_places=2)
+                    )
+                ),
+                default=F('price'),
+                output_field=DecimalField(max_digits=15, decimal_places=2)
+            )
+        )
+
         return qs
 
 
